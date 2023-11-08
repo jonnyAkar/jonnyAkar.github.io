@@ -67,9 +67,6 @@
 }
 
 #g4{
-    display: flex;
-	justify-content: center;
-	align-items: center;
     position: absolute;
     background-color: white;
     left:0;
