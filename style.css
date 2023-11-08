@@ -178,13 +178,14 @@
 }
 
 .selection .liked-only {
+    margin-right: 10px; 
     margin-left: auto; /* This pushes the following elements to the far right */
 }
 
 .selection .random,
 .selection .screenshot,
 .selection .toggle-background,
-.selection .liked-only {
+.selection .like-image {
     margin-right: 10px;
 }
 
@@ -209,3 +210,4 @@
 .wall-labels{
     color: black;
 }
+

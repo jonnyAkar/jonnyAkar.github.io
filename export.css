@@ -1,0 +1,242 @@
+
+.images {
+    max-width: 100%;
+    height: auto;
+    margin: 5px; /* some spacing between images */
+}
+
+.room1{
+    position: relative;
+    height: 150vh;
+}
+
+.room2{
+    position: relative;
+    height: 150vh;
+}
+
+#g1{
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    position: absolute;
+    background-color: white;
+    bottom:0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+#g1 .image-container {
+    background-color: grey; 
+    width: 300px; 
+}
+
+#g2{
+    position: absolute;
+    background-color: white;
+
+    top:50%;
+    transform: translateY(-50%);
+
+    right:0;
+    z-index: 1;
+}
+
+#g2 .image-container {
+    background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
+    width: 300px; 
+}
+
+#g3{
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    position: absolute;
+    background-color: white;
+    top:0;
+    right:50%;
+    transform: translateX(50%);
+
+    z-index: 1;
+}
+
+#g3 .image-container {
+    background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
+    width: 300px; 
+}
+
+#g4{
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    position: absolute;
+    background-color: white;
+    left:0;
+    top:50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+#g4 .image-container {
+    background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
+    width: 300px; 
+}
+
+.hlinekeep{
+    position: relative;
+}
+
+#fileInput {
+    display: none;
+}
+
+
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 130px; 
+    height: auto;
+    aspect-ratio: 1; 
+    overflow: hidden;
+    background-color: grey;
+    margin: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    
+}
+
+.image-container img {
+    width: 100%; 
+    max-width: 300px; 
+    max-height: 300px; 
+    height: auto; 
+    position: absolute;
+}
+
+#g5{
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    position: absolute;
+    background-color: white;
+    left:50%;
+    top:0;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+#g5 .image-container {
+    background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
+    width: 300px; 
+}
+
+#g6{
+    position: absolute;
+    background-color: white;
+
+    top:50%;
+    transform: translateY(-50%);
+
+    right:0;
+    z-index: 1;
+}
+
+#g6 .image-container {
+    background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
+    width: 300px; 
+}
+
+
+#g7{
+    display: flex;
+	justify-content: center;
+	align-items: center;
+    position: absolute;
+    background-color: white;
+    bottom:0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+#g7 .image-container {
+    background-color: grey; 
+    width: 300px; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.upload {
+	display: none;
+}
+.button-upload {
+	display: none;
+}
+
+.next-image {
+    display: none;
+}
+.prev-image {
+    
+    display: none;
+}
+.random-image {
+    
+    display: none;
+}
+
+.lock-image {
+    
+    display: none;
+}
+
+.like-image {
+    
+    display: none;
+}
+
+.plus-button {
+    display: none;
+
+}
+
+.delete-button {
+    display: none;
+}
+  
+.selection {
+    display: none;
+}
+
+.wall-selection{
+    display: none;
+}
+
+.hline{
+    display: none;
+}
+
