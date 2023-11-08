@@ -75,7 +75,7 @@
 .random-image {
     position: absolute;
     left: 10px;
-    top: 40px;
+    top: 70px;
     background-color: rgba(255, 255, 255, 0.7);
     border: none;
     padding: 5px 10px;
@@ -87,6 +87,17 @@
     position: absolute;
     left: 10px;
     top: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: none;
+}
+
+.like-image {
+    position: absolute;
+    left: 10px;
+    top: 40px;
     background-color: rgba(255, 255, 255, 0.7);
     border: none;
     padding: 5px 10px;
@@ -166,13 +177,14 @@
     margin-right: 10px; /* Spacing between label, select, and apply button */
 }
 
-.selection .random {
+.selection .liked-only {
     margin-left: auto; /* This pushes the following elements to the far right */
 }
 
 .selection .random,
 .selection .screenshot,
-.selection .toggle-background {
+.selection .toggle-background,
+.selection .liked-only {
     margin-right: 10px;
 }
 
@@ -189,7 +201,7 @@
     margin: 0; 
 }
   
-.wall-selection .random-wall{
+.wall-selection .random{
     
     margin-left: auto;
 }

@@ -13,6 +13,8 @@
         <label for="image-input">Upload Images:</label>
         <input type="file" id="image-input" multiple>
 
+        <button class="liked-only" onclick="handleLikeButton()">View Liked</button>
+
         <button class="random" onclick="randomizeAll()">Randomize</button>
         <button class="screenshot" onclick="captureScreenshot()">Screenshot</button>
         <button class="toggle-background" onclick="toggleBackground()">Toggle Background</button>
@@ -21,7 +23,9 @@
         <hr class="hline">
         <div class="wall-selection">
             <h3 class="wall-labels">Wall 1</h3>
+            <button class="random" onclick="randomizeAll()">Randomize</button>
             <button class="random-wall" onclick="randomizeWall(1)">Randomize Wall</button>
+            <button class="screenshot-wall" onclick="captureScreenshotWall(1)">Screenshot Wall</button>
             <label class="wall-labels" for="num-walls">Number of images:</label>
             <select name="num-walls" id="num-walls-select1" class="num-walls-select">
                 <option value="3">3</option>
@@ -36,7 +40,9 @@
         <hr class="hline">
         <div class="wall-selection">
             <h3>Wall 2</h3>
+            <button class="random" onclick="randomizeAll()">Randomize</button>
             <button class="random-wall" onclick="randomizeWall(2)">Randomize Wall</button>
+            <button class="screenshot-wall" onclick="captureScreenshotWall(2)">Screenshot Wall</button>
             <label for="num-walls">Number of images:</label>
             <select name="num-walls" id="num-walls-select2" class="num-walls-select">
                 <option value="1">1</option>
@@ -44,14 +50,15 @@
             </select>
             <button class = "apply" onclick="updateWall(2)">Apply</button>
         </div>
-        <div class="container" id="g2">
-            
+        <div class="container" id="g2">  
 
         </div>
         <hr class="hline">
         <div class="wall-selection">
             <h3>Wall 3</h3>
+            <button class="random" onclick="randomizeAll()">Randomize</button>
             <button class="random-wall" onclick="randomizeWall(3)">Randomize Wall</button>
+            <button class="screenshot-wall" onclick="captureScreenshotWall(3)">Screenshot Wall</button>
             <label for="num-walls">Number of images:</label>
             <select name="num-walls" id="num-walls-select3" class="num-walls-select">
                 <option value="2">2</option>
@@ -59,14 +66,15 @@
             </select>
             <button class = "apply" onclick="updateWall(3)">Apply</button>
         </div>
-        <div class="container" id="g3">
-            
+        <div class="container" id="g3">     
 
         </div>
         <hr class="hline">
         <div class="wall-selection">
             <h3>Wall 4</h3>
+            <button class="random" onclick="randomizeAll()">Randomize</button>
             <button class="random-wall" onclick="randomizeWall(4)">Randomize Wall</button>
+            <button class="screenshot-wall" onclick="captureScreenshotWall(4)">Screenshot Wall</button>
             <label for="num-walls">Number of images:</label>
             <select name="num-walls" id="num-walls-select4" class="num-walls-select">
                 <option value="1">1</option>
@@ -76,12 +84,13 @@
         </div>
         <div class="container" id="g4">
             
-
         </div>
         <hr class="hline">
         <div class="wall-selection">
             <h3>Wall 5</h3>
+            <button class="random" onclick="randomizeAll()">Randomize</button>
             <button class="random-wall" onclick="randomizeWall(5)">Randomize Wall</button>
+            <button class="screenshot-wall" onclick="captureScreenshotWall(5)">Screenshot Wall</button>
             <label for="num-walls">Number of images:</label>
             <select name="num-walls" id="num-walls-select5" class="num-walls-select">
                 <option value="4">4</option>
@@ -91,13 +100,14 @@
             <button class = "apply" onclick="updateWall(5)">Apply</button>
         </div>
         <div class="container" id="g5">
-            
 
         </div>
         <hr class="hline">
         <div class="wall-selection">
             <h3>Wall 6</h3>
+            <button class="random" onclick="randomizeAll()">Randomize</button>
             <button class="random-wall" onclick="randomizeWall(6)">Randomize Wall</button>
+            <button class="screenshot-wall" onclick="captureScreenshotWall(6)">Screenshot Wall</button>
             <label for="num-walls">Number of images:</label>
             <select name="num-walls" id="num-walls-select6" class="num-walls-select">
                 <option value="1">1</option>
@@ -105,14 +115,15 @@
             </select>
             <button class = "apply" onclick="updateWall(6)">Apply</button>
         </div>
-        <div class="container" id="g6">
-            
+        <div class="container" id="g6">   
 
         </div>
         <hr class="hline">
         <div class="wall-selection">
                 <h3>Wall 7</h3>
+                <button class="random" onclick="randomizeAll()">Randomize</button>
                 <button class="random-wall" onclick="randomizeWall(7)">Randomize Wall</button>
+                <button class="screenshot-wall" onclick="captureScreenshotWall(7)">Screenshot Wall</button>
                 <label for="num-walls">Number of images:</label>
                 <select name="num-walls" id="num-walls-select7" class="num-walls-select">
                     <option value="3">3</option>
@@ -128,6 +139,72 @@
     <script>
         const lockedImages = [];
 
+        const likedImages = {};
+
+        const saved_files = [];
+
+        function viewAll(){
+            lockedImages.length = 0;
+            document.querySelectorAll('.image-container').forEach((div,index) => {
+                uploadImages(saved_files[index], div);
+            });
+        }
+
+        function handleLikeButton(){
+            const button = document.querySelector('.liked-only');
+
+            if (button.innerText == "View Liked"){
+                button.innerText = "View All";
+                viewLikedOnly();
+            }else{
+                button.innerText = "View Liked";
+                viewAll();
+            }
+        }
+
+        function viewLikedOnly(){
+            const button = document.querySelector('.liked-only');
+            
+            document.querySelectorAll('.image-container').forEach(div => {
+                uploadLikedImages(likedImages, div);
+            });
+        }
+
+        function likeImage(button){
+            const parentDiv = button.parentElement;
+
+            const currentIndex = parseInt(parentDiv.dataset.currentIndex);
+            const images = JSON.parse(parentDiv.dataset.images);
+            currentImage = images[currentIndex]
+            const isLiked = currentImage.name in likedImages;
+
+            if (!isLiked){ //like the iamge
+                button.innerText = "Unlike";
+                likedImages[currentImage.name] = currentImage;
+            }
+            else{
+                button.innerText = "Like";
+                //remove currentImage from lockedImages
+                delete(likedImages[currentImage.name])
+            }
+        }
+
+        function captureScreenshotWall(wall){
+            const id = "g" + String(wall);
+            const container = document.getElementById(id);
+
+            html2canvas(container).then(function(canvas) {
+                // You can append the canvas element to the document to see the screenshot
+                // document.body.appendChild(canvas);
+
+                // Or convert it to an image and download it
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL();
+                link.download = 'screenshot.png';
+                link.click();
+            });
+        }
+
         function randomizeWall(wall){
             const count = getValueOfWall(String(wall));
             const id = 'g' + String(wall);
@@ -141,7 +218,6 @@
                 }
             });
         }
-
 
         function lockImage(button){
             const parentDiv = button.parentElement;
@@ -263,9 +339,44 @@
         }
     }
 
-        function uploadImages(input, parentDiv) {
+        function uploadLikedImages(files, parentDiv) {
             //new images to upload, replaces all of the current images
-            if (input.files && input.files.length > 1) {
+            let loadedImagesCount = 0;
+            let imageUrls = [];
+
+            const onAllImagesLoaded = () => {
+                parentDiv.dataset.images = JSON.stringify(imageUrls);
+                parentDiv.dataset.currentIndex = 0;
+                parentDiv.isLocked = false;
+                parentDiv.style.backgroundImage = `url(${imageUrls[0].url})`;
+            };
+
+            for (key in likedImages) {
+                if (key == 'length'){
+
+                    continue;
+                }
+                const file = likedImages[key];
+                const imageName = file.name;
+                const imageUrl = file.url;
+                imageUrls.push({url: imageUrl, name:imageName});
+
+                const img = new Image();
+                img.src = imageUrl;
+                img.onload = () => {
+                    loadedImagesCount++;
+                    if (loadedImagesCount === (Object.keys(likedImages).length - 1)) {
+                        onAllImagesLoaded();
+                    }
+                };
+            }
+        }
+            
+        
+    
+        function uploadImages(files, parentDiv) {
+            //new images to upload, replaces all of the current images
+            if (files && files.length > 1) {
                 let loadedImagesCount = 0;
                 let imageUrls = [];
 
@@ -276,9 +387,9 @@
                     parentDiv.style.backgroundImage = `url(${imageUrls[0].url})`;
                 };
 
-                for (let i = 0; i < input.files.length; i++) {
-                    const imageName = input.files[i].name;
-                    const imageUrl = URL.createObjectURL(input.files[i]);
+                for (let i = 0; i < files.length; i++) {
+                    const imageName = files[i].name;
+                    const imageUrl = URL.createObjectURL(files[i]);
 
                     imageUrls.push({url: imageUrl, name:imageName});
 
@@ -286,7 +397,7 @@
                     img.src = imageUrl;
                     img.onload = () => {
                         loadedImagesCount++;
-                        if (loadedImagesCount === input.files.length) {
+                        if (loadedImagesCount === files.length) {
                             onAllImagesLoaded();
                         }
                     };
@@ -294,14 +405,13 @@
             }
             else{
                
-                const imageUrl = URL.createObjectURL(input.files[0]);
-                const imageName = input.files[0].name; 
+                const imageUrl = URL.createObjectURL(files[0]);
+                const imageName = files[0].name; 
 
                 parentDiv.style.backgroundImage = `url(${imageUrl})`;
                 parentDiv.dataset.currentIndex = 0;
-                parentDiv.dataset.images = JSON.stringify([{ url: imageUrl, name: imageName }]);
-                parentDiv.isLocked = false;
-                
+                parentDiv.dataset.images = JSON.stringify([{ url: imageUrl, name: imageName}]);
+                parentDiv.isLocked = false;                
             }
         }
 
@@ -334,7 +444,7 @@
             if (images.length == 0){
                 div.querySelector('.delete-button').style.display = 'none';
                 div.querySelector('.lock-image').style.display = 'none';
-
+                div.querySelector('.like-image').style.display = 'none';
                 div.querySelector('.plus-button').style.display = 'none';
             }
 
@@ -424,6 +534,17 @@
 
             parentDiv.style.backgroundImage = `url(${images[currentIndex].url})`;
             parentDiv.dataset.currentIndex = currentIndex;
+
+           
+            likeButton = parentDiv.querySelector('.like-image');
+
+            if(images[currentIndex].name in likedImages){
+                console.log("image is liked");
+                likeButton.innerText = "Unlike";
+            }else{
+                console.log("image is unliked");
+                likeButton.innerText = "Like";
+            }
         }
 
         function prevImage(button) {
@@ -446,18 +567,30 @@
 
             parentDiv.style.backgroundImage = `url(${images[currentIndex].url})`;
             parentDiv.dataset.currentIndex = currentIndex;
+
+            likeButton = parentDiv.querySelector('.like-image');
+            if(images[currentIndex].name in likedImages){
+                likeButton.innerText = "Unlike"
+            }else{
+                likeButton.innerText = "Like"
+            }
         }
 
         function mouseEnter(parentDiv) {
             const images = JSON.parse(parentDiv.dataset.images);
+            const currentIndex = parseInt(parentDiv.dataset.currentIndex);
+            const currentImage = images[currentIndex];
 
             if (images.length > 0 && !parentDiv.isLocked){
                 parentDiv.querySelector('.delete-button').style.display = 'block';
                 parentDiv.querySelector('.plus-button').style.display = 'block';
+                parentDiv.querySelector('.like-image').style.display = 'block';
+
             }
             else if(images.length > 0 && parentDiv.isLocked){
                 parentDiv.querySelector('.delete-button').style.display = 'none';
                 parentDiv.querySelector('.plus-button').style.display = 'none';
+                parentDiv.querySelector('.like-image').style.display = 'none';
             }
 
             if (images.length > 0){
@@ -480,6 +613,16 @@
 
                 parentDiv.querySelector('.next-image').style.display = 'none' ;
                 parentDiv.querySelector('.prev-image').style.display = 'none' ;
+                parentDiv.querySelector('.like-image').style.display = 'none';
+
+            }
+
+            likeButton = parentDiv.querySelector('.like-image');
+
+            if(currentImage.name in likedImages){
+                likeButton.innerText = "Unlike";
+            }else{
+                likeButton.innerText = "Like";
             }
             
         }
@@ -493,6 +636,8 @@
             parentDiv.querySelector('.prev-image').style.display = 'none';
             parentDiv.querySelector('.random-image').style.display = 'none';
             parentDiv.querySelector('.delete-button').style.display = 'none';
+            parentDiv.querySelector('.like-image').style.display = 'none';
+
 
 
         }
@@ -554,6 +699,11 @@
                 lockButton.classList.add('lock-image');
                 lockButton.onclick = function() { lockImage(this); }
 
+                const heartButton = document.createElement('button');
+                heartButton.innerText = "Like";
+                heartButton.classList.add('like-image');
+                heartButton.onclick = function() { likeImage(this); }
+
                 const buttonInput = document.createElement('input');
                 buttonInput.type = 'file';
                 buttonInput.accept = 'image/*';
@@ -571,6 +721,7 @@
 
                 
                 div.appendChild(buttonInput);
+                div.appendChild(heartButton);
                 div.appendChild(lockButton);
                 div.appendChild(deleteButton);
                 div.appendChild(deleteButton);
@@ -635,8 +786,11 @@
 
         document.getElementById('image-input').addEventListener('change', function(e) {
             lockedImages.length = 0;
-            document.querySelectorAll('.image-container').forEach(div => {
-                uploadImages(e.target, div);
+            likedImages.length = 0;
+            saved_files.length = 0;
+            document.querySelectorAll('.image-container').forEach((div,index) => {
+                saved_files[index] = e.target.files;
+                uploadImages(e.target.files, div);
             });
         });
     </script>
