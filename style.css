@@ -185,7 +185,8 @@
 .selection .random,
 .selection .screenshot,
 .selection .toggle-background,
-.selection .like-image {
+.selection .like-image,
+.selection .view-all {
     margin-right: 10px;
 }
 

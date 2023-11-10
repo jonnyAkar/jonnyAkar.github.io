@@ -30,6 +30,8 @@
 #g1 .image-container {
     background-color: grey; 
     width: 300px; 
+    transform: rotate(180deg);
+
 }
 
 #g2{
@@ -46,6 +48,8 @@
 #g2 .image-container {
     background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
     width: 300px; 
+    transform: rotate(90deg);
+
 }
 
 #g3{
@@ -78,6 +82,8 @@
 #g4 .image-container {
     background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
     width: 300px; 
+    transform: rotate(-90deg);
+
 }
 
 .hlinekeep{
@@ -147,6 +153,8 @@
 #g6 .image-container {
     background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
     width: 300px; 
+    transform: rotate(90deg);
+
 }
 
 
@@ -165,6 +173,8 @@
 #g7 .image-container {
     background-color: grey; 
     width: 300px; 
+    transform: rotate(180deg);
+
 }
 
 
