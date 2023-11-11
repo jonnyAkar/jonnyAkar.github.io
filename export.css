@@ -178,6 +178,51 @@
 }
 
 
+#g1 .wall-text-input,
+#g7 .wall-text-input{
+    position: absolute;
+    left: 50%;
+    top: -50px; 
+    z-index: 3;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+#g2 .wall-text-input,
+#g6 .wall-text-input{
+    position: absolute;
+    left: -325px;
+    top: 50%; 
+    z-index: 3;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 50px;
+}
+
+#g3 .wall-text-input,
+#g5 .wall-text-input{
+    position: absolute;
+    left: 50%;
+    bottom: -50px; 
+    z-index: 3;
+    transform: translateX(-50%);
+    width: 325px;
+    height: 50px;
+}
+
+#g4 .wall-text-input{
+    position: absolute;
+    right: -325px;
+    top: 50%; 
+    z-index: 3;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 50px;
+}
+
+
 
 
 
@@ -246,4 +291,6 @@
 .hline{
     display: none;
 }
+
+
 
