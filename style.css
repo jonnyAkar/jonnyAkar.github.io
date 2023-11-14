@@ -186,7 +186,8 @@
 .selection .screenshot,
 .selection .toggle-background,
 .selection .like-image,
-.selection .view-all {
+.selection .view-all,
+.selection .unlock-all {
     margin-right: 10px;
 }
 
