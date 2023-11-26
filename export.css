@@ -29,7 +29,7 @@
 
 #g1 .image-container {
     background-color: grey; 
-    width: 215px; 
+    width: 230px; 
     transform: rotate(180deg);
 }
 
@@ -46,7 +46,7 @@
 
 #g2 .image-container {
     background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
-    width: 240px; 
+    width: 255px; 
     transform: rotate(90deg);
 
 }
@@ -66,7 +66,7 @@
 
 #g3 .image-container {
     background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
-    width: 215px; 
+    width: 230px; 
 }
 
 #g4{
@@ -80,7 +80,7 @@
 
 #g4 .image-container {
     background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
-    width: 240px; 
+    width: 255px; 
     transform: rotate(-90deg);
 
 }
@@ -135,7 +135,7 @@
 
 #g5 .image-container {
     background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
-    width: 215px; 
+    width: 230px; 
 }
 
 #g6{
@@ -151,7 +151,7 @@
 
 #g6 .image-container {
     background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
-    width: 240px; 
+    width: 255px; 
     transform: rotate(90deg);
 
 }
@@ -171,7 +171,7 @@
 
 #g7 .image-container {
     background-color: grey; 
-    width: 215px; 
+    width: 230px; 
     transform: rotate(180deg);
 
 }
