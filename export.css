@@ -1,3 +1,8 @@
+:root {
+    --image-width: 220px; 
+    --single-image-width: 255px;
+  }
+
 
 .images {
     max-width: 100%;
@@ -8,11 +13,19 @@
 .gallery {
     display: flex;
     flex-direction: column;
+}  
+
+.hlinekeep {
+    order: 2;
+    height: 1px; 
+    background-color: black; 
+    border: none;
+    width: 100%; 
+    margin: 0; 
   }
 
-
 .room1{
-    order: 2;
+    order: 3;
     position: relative;
     height: 150vh;
 }
@@ -37,7 +50,7 @@
 
 #g1 .image-container {
     background-color: grey; 
-    width: 230px; 
+    width: var(--image-width); 
     transform: rotate(180deg);
 }
 
@@ -54,7 +67,7 @@
 
 #g2 .image-container {
     background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
-    width: 255px; 
+    width: var(--single-image-width); 
     transform: rotate(90deg);
 
 }
@@ -74,7 +87,7 @@
 
 #g3 .image-container {
     background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
-    width: 230px; 
+    width: var(--image-width); 
 }
 
 #g4{
@@ -88,14 +101,11 @@
 
 #g4 .image-container {
     background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
-    width: 255px; 
+    width: var(--single-image-width); 
     transform: rotate(-90deg);
 
 }
 
-.hlinekeep{
-    position: relative;
-}
 
 #fileInput {
     display: none;
@@ -143,7 +153,7 @@
 
 #g5 .image-container {
     background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
-    width: 230px; 
+    width: var(--image-width);  
 }
 
 #g6{
@@ -159,7 +169,7 @@
 
 #g6 .image-container {
     background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
-    width: 255px; 
+    width: var(--single-image-width); 
     transform: rotate(90deg);
 
 }
@@ -179,7 +189,7 @@
 
 #g7 .image-container {
     background-color: grey; 
-    width: 230px; 
+    width: var(--image-width); 
     transform: rotate(180deg);
 
 }
