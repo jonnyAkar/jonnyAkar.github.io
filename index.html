@@ -28,8 +28,8 @@
                 <h3 class="wall-labels">Wall 1</h3>
                 <button class="random" onclick="randomizeAll()">Randomize</button>
                 <button class="random-wall" onclick="randomizeWall(1)">Randomize Wall</button>
-                <input type="file" id="wallFileInput" style="display: none;" onchange="handleFileUpload(event, 1)" multiple>
-                <button class="upload-wall" onclick="triggerFileInput()">Upload Wall</button>
+                <input type="file" id="wallFileInput1" style="display: none;" onchange="handleFileUpload(event, 1)" multiple>
+                <button class="upload-wall" onclick="triggerFileInput(1)">Upload Wall</button>
                 <button class="screenshot-wall" onclick="captureScreenshotWall(1)">Screenshot Wall</button>
                 <label class="wall-labels" for="num-walls">Number of images:</label>
                 <select name="num-walls" id="num-walls-select1" class="num-walls-select">
@@ -48,13 +48,14 @@
                 <h3>Wall 2</h3>
                 <button class="random" onclick="randomizeAll()">Randomize</button>
                 <button class="random-wall" onclick="randomizeWall(2)">Randomize Wall</button>
-                <input type="file" id="wallFileInput" style="display: none;" onchange="handleFileUpload(event, 2)" multiple>
-                <button class="upload-wall" onclick="triggerFileInput()">Upload Wall</button>
+                <input type="file" id="wallFileInput2" style="display: none;" onchange="handleFileUpload(event, 2)" multiple>
+                <button class="upload-wall" onclick="triggerFileInput(2)">Upload Wall</button>
                 <button class="screenshot-wall" onclick="captureScreenshotWall(2)">Screenshot Wall</button>
                 <label for="num-walls">Number of images:</label>
                 <select name="num-walls" id="num-walls-select2" class="num-walls-select">
                     <option value="1">1</option>
                     <option value="2">2</option>
+                    <option value="4">4</option>
                 </select>
                 <button class = "apply" onclick="updateWall(2)">Apply</button>
             </div>
@@ -66,14 +67,14 @@
                 <h3>Wall 3</h3>
                 <button class="random" onclick="randomizeAll()">Randomize</button>
                 <button class="random-wall" onclick="randomizeWall(3)">Randomize Wall</button>
-                <input type="file" id="wallFileInput" style="display: none;" onchange="handleFileUpload(event, 3)" multiple>
-                <button class="upload-wall" onclick="triggerFileInput()">Upload Wall</button>
-
+                <input type="file" id="wallFileInput3" style="display: none;" onchange="handleFileUpload(event, 3)" multiple>
+                <button class="upload-wall" onclick="triggerFileInput(3)">Upload Wall</button>
                 <button class="screenshot-wall" onclick="captureScreenshotWall(3)">Screenshot Wall</button>
                 <label for="num-walls">Number of images:</label>
                 <select name="num-walls" id="num-walls-select3" class="num-walls-select">
                     <option value="2">2</option>
                     <option value="1">1</option>
+                    <option value="4">4</option>
                 </select>
                 <button class = "apply" onclick="updateWall(3)">Apply</button>
             </div>
@@ -85,14 +86,15 @@
                 <h3>Wall 4</h3>
                 <button class="random" onclick="randomizeAll()">Randomize</button>
                 <button class="random-wall" onclick="randomizeWall(4)">Randomize Wall</button>
-                <input type="file" id="wallFileInput" style="display: none;" onchange="handleFileUpload(event, 4)" multiple>
-                <button class="upload-wall" onclick="triggerFileInput()">Upload Wall</button>
+                <input type="file" id="wallFileInput4" style="display: none;" onchange="handleFileUpload(event, 4)" multiple>
+                <button class="upload-wall" onclick="triggerFileInput(4)">Upload Wall</button>
 
                 <button class="screenshot-wall" onclick="captureScreenshotWall(4)">Screenshot Wall</button>
                 <label for="num-walls">Number of images:</label>
                 <select name="num-walls" id="num-walls-select4" class="num-walls-select">
                     <option value="1">1</option>
                     <option value="2">2</option>
+                    <option value="4">4</option>
                 </select>
                 <button class = "apply" onclick="updateWall(4)">Apply</button>
             </div>
@@ -107,8 +109,8 @@
                 <h3>Wall 5</h3>
                 <button class="random" onclick="randomizeAll()">Randomize</button>
                 <button class="random-wall" onclick="randomizeWall(5)">Randomize Wall</button>
-                <input type="file" id="wallFileInput" style="display: none;" onchange="handleFileUpload(event, 5)" multiple>
-                <button class="upload-wall" onclick="triggerFileInput()">Upload Wall</button>
+                <input type="file" id="wallFileInput5" style="display: none;" onchange="handleFileUpload(event, 5)" multiple>
+                <button class="upload-wall" onclick="triggerFileInput(5)" multiple>Upload Wall</button>
 
                 <button class="screenshot-wall" onclick="captureScreenshotWall(5)">Screenshot Wall</button>
                 <label for="num-walls">Number of images:</label>
@@ -128,14 +130,15 @@
                 <h3>Wall 6</h3>
                 <button class="random" onclick="randomizeAll()">Randomize</button>
                 <button class="random-wall" onclick="randomizeWall(6)">Randomize Wall</button>
-                <input type="file" id="wallFileInput" style="display: none;" onchange="handleFileUpload(event, 6)" multiple>
-                <button class="upload-wall" onclick="triggerFileInput()">Upload Wall</button>
+                <input type="file" id="wallFileInput6" style="display: none;" onchange="handleFileUpload(event, 6)" multiple>
+                <button class="upload-wall" onclick="triggerFileInput(6)">Upload Wall</button>
 
                 <button class="screenshot-wall" onclick="captureScreenshotWall(6)">Screenshot Wall</button>
                 <label for="num-walls">Number of images:</label>
                 <select name="num-walls" id="num-walls-select6" class="num-walls-select">
                     <option value="1">1</option>
                     <option value="2">2</option>
+                    <option value="4">4</option>
                 </select>
                 <button class = "apply" onclick="updateWall(6)">Apply</button>
             </div>
@@ -147,14 +150,15 @@
                     <h3>Wall 7</h3>
                     <button class="random" onclick="randomizeAll()">Randomize</button>
                     <button class="random-wall" onclick="randomizeWall(7)">Randomize Wall</button>
-                    <input type="file" id="wallFileInput" style="display: none;" onchange="handleFileUpload(event, 7)" multiple>
-                    <button class="upload-wall" onclick="triggerFileInput()">Upload Wall</button>
+                    <input type="file" id="wallFileInput7" style="display: none;" onchange="handleFileUpload(event, 7)" multiple>
+                    <button class="upload-wall" onclick="triggerFileInput(7)">Upload Wall</button>
 
                     <button class="screenshot-wall" onclick="captureScreenshotWall(7)">Screenshot Wall</button>
                     <label for="num-walls">Number of images:</label>
                     <select name="num-walls" id="num-walls-select7" class="num-walls-select">
                         <option value="3">3</option>
                         <option value="2">2</option>
+                        <option value="4">4</option>
                     </select>
                     <button class = "apply" onclick="updateWall(7)">Apply</button>
                 </div>
@@ -174,8 +178,8 @@
         //key: imagecontainer.id
         const saved_files = {};
 
-        function triggerFileInput() {
-            document.getElementById('wallFileInput').click();
+        function triggerFileInput(wall) {
+            document.getElementById('wallFileInput' + wall).click();
         }
 
         function unlockAll(){
@@ -958,6 +962,7 @@
 
             const id = 'g' + String(wall);
             const container = document.getElementById(id);
+            console.log(id);
             const imageContainers = container.querySelectorAll('.image-container');
 
             //remove any liked, locked, or saved images in container

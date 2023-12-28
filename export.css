@@ -5,12 +5,20 @@
     margin: 5px; /* some spacing between images */
 }
 
+.gallery {
+    display: flex;
+    flex-direction: column;
+  }
+
+
 .room1{
+    order: 2;
     position: relative;
     height: 150vh;
 }
 
 .room2{
+    order: 1;
     position: relative;
     height: 150vh;
 }
