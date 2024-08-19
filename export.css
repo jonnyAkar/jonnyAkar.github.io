@@ -6,7 +6,7 @@
 
 .images {
     max-width: 100%;
-    height: auto;
+    height: auto; /* test */
     margin: 5px; /* some spacing between images */
 }
 
