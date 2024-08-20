@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Uploader</title>
-    <link rel="stylesheet" href="./style.css" id="defaultStyle">
+    <link rel="stylesheet" href="./style.css" id="defaultStyle" >
     <link rel="stylesheet" href="./export.css" id="alternateStyle" disabled>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -22,7 +22,6 @@
         <button class="toggle-background" onclick="toggleBackground()">Toggle Background</button>
     </div>
     <div class="gallery">
-        <div class="room1">
             <hr class="hline">
             <div class="wall-selection">
                 <h3 class="wall-labels">Wall 1</h3>
@@ -33,9 +32,10 @@
                 <button class="screenshot-wall" onclick="captureScreenshotWall(1)">Screenshot Wall</button>
                 <label class="wall-labels" for="num-walls">Number of images:</label>
                 <select name="num-walls" id="num-walls-select1" class="num-walls-select">
-                    <option value="3">3</option>
-                    <option value="2">2</option>
-                    <option value="4">4</option>
+                    <option value="1" size="large">1 L</option>
+                    <option value="1" size="medium">1 M</option>
+                    <option value="1" size="small">1 S</option>
+                    <option value="2" size="small">2 S</option>
                 </select>
                 <button class = "apply" onclick="updateWall(1)">Apply</button>
             </div>
@@ -44,7 +44,6 @@
                 <div contenteditable="true" class="wall-text-input"></div>
             </div>
 
-            <hr class="hline">
             <div class="wall-selection">
                 <h3>Wall 2</h3>
                 <button class="random" onclick="randomizeAll()">Randomize</button>
@@ -54,16 +53,17 @@
                 <button class="screenshot-wall" onclick="captureScreenshotWall(2)">Screenshot Wall</button>
                 <label for="num-walls">Number of images:</label>
                 <select name="num-walls" id="num-walls-select2" class="num-walls-select">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="4">4</option>
+                    <option value="2" size="large">2 L</option>
+                    <option value="2" size="medium">2 M</option>
+                    <option value="3" size="medium">3 M</option>
+                    <option value="4" size="small">4 S</option>
+                    <option value="5" size="small">5 S</option>
                 </select>
                 <button class = "apply" onclick="updateWall(2)">Apply</button>
             </div>
             <div class="container" id="g2">  
                 <div contenteditable="true" class="wall-text-input"></div>
             </div>
-            <hr class="hline">
             <div class="wall-selection">
                 <h3>Wall 3</h3>
                 <button class="random" onclick="randomizeAll()">Randomize</button>
@@ -73,16 +73,16 @@
                 <button class="screenshot-wall" onclick="captureScreenshotWall(3)">Screenshot Wall</button>
                 <label for="num-walls">Number of images:</label>
                 <select name="num-walls" id="num-walls-select3" class="num-walls-select">
-                    <option value="2">2</option>
-                    <option value="1">1</option>
-                    <option value="4">4</option>
+                    <option value="1" size="large">1 L</option>
+                    <option value="1" size="medium">1 M</option>
+                    <option value="1" size="small">1 S</option>
+                    <option value="2" size="small">2 S</option>
                 </select>
                 <button class = "apply" onclick="updateWall(3)">Apply</button>
             </div>
             <div class="container" id="g3">   
                 <div contenteditable="true" class="wall-text-input"></div>
             </div>
-            <hr class="hline">
             <div class="wall-selection">
                 <h3>Wall 4</h3>
                 <button class="random" onclick="randomizeAll()">Randomize</button>
@@ -93,80 +93,16 @@
                 <button class="screenshot-wall" onclick="captureScreenshotWall(4)">Screenshot Wall</button>
                 <label for="num-walls">Number of images:</label>
                 <select name="num-walls" id="num-walls-select4" class="num-walls-select">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="4">4</option>
+                    <option value="1" size="large">1 L</option>
+                    <option value="1" size="medium">1 M</option>
+                    <option value="2" size="medium">2 M</option>
+                    <option value="3" size="small">3 S</option>
                 </select>
                 <button class = "apply" onclick="updateWall(4)">Apply</button>
             </div>
             <div class="container" id="g4">
                 <div contenteditable="true" class="wall-text-input"></div>
             </div>
-        </div>
-        <hr class="hlinekeep">
-        <div class="room2">
-
-            <div class="wall-selection">
-                <h3>Wall 5</h3>
-                <button class="random" onclick="randomizeAll()">Randomize</button>
-                <button class="random-wall" onclick="randomizeWall(5)">Randomize Wall</button>
-                <input type="file" id="wallFileInput5" style="display: none;" onchange="handleFileUpload(event, 5)" multiple>
-                <button class="upload-wall" onclick="triggerFileInput(5)" multiple>Upload Wall</button>
-
-                <button class="screenshot-wall" onclick="captureScreenshotWall(5)">Screenshot Wall</button>
-                <label for="num-walls">Number of images:</label>
-                <select name="num-walls" id="num-walls-select5" class="num-walls-select">
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="3">3</option>
-                </select>
-                <button class = "apply" onclick="updateWall(5)">Apply</button>
-            </div>
-
-            <div class="container" id="g5">
-                <div contenteditable="true" class="wall-text-input"></div>
-            </div>
-            <hr class="hline">
-            <div class="wall-selection">
-                <h3>Wall 6</h3>
-                <button class="random" onclick="randomizeAll()">Randomize</button>
-                <button class="random-wall" onclick="randomizeWall(6)">Randomize Wall</button>
-                <input type="file" id="wallFileInput6" style="display: none;" onchange="handleFileUpload(event, 6)" multiple>
-                <button class="upload-wall" onclick="triggerFileInput(6)">Upload Wall</button>
-
-                <button class="screenshot-wall" onclick="captureScreenshotWall(6)">Screenshot Wall</button>
-                <label for="num-walls">Number of images:</label>
-                <select name="num-walls" id="num-walls-select6" class="num-walls-select">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="4">4</option>
-                </select>
-                <button class = "apply" onclick="updateWall(6)">Apply</button>
-            </div>
-            <div class="container" id="g6">   
-                <div contenteditable="true" class="wall-text-input"></div>
-            </div>
-            <hr class="hline">
-            <div class="wall-selection">
-                    <h3>Wall 7</h3>
-                    <button class="random" onclick="randomizeAll()">Randomize</button>
-                    <button class="random-wall" onclick="randomizeWall(7)">Randomize Wall</button>
-                    <input type="file" id="wallFileInput7" style="display: none;" onchange="handleFileUpload(event, 7)" multiple>
-                    <button class="upload-wall" onclick="triggerFileInput(7)">Upload Wall</button>
-
-                    <button class="screenshot-wall" onclick="captureScreenshotWall(7)">Screenshot Wall</button>
-                    <label for="num-walls">Number of images:</label>
-                    <select name="num-walls" id="num-walls-select7" class="num-walls-select">
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="4">4</option>
-                    </select>
-                    <button class = "apply" onclick="updateWall(7)">Apply</button>
-                </div>
-            <div class="container" id="g7">
-                <div contenteditable="true" class="wall-text-input"></div>
-            </div>
-        </div>
     </div>
 
     <script>
@@ -370,72 +306,72 @@
         }
 
         function uploadImagesToSquare(files, parentDiv) {
-        // New images to upload, replaces all of the current images
-        if (files && files.length > 1) {
-            let loadedImagesCount = 0;
-            let imageUrls = [];
+            // New images to upload, replaces all of the current images
+            if (files && files.length > 1) {
+                let loadedImagesCount = 0;
+                let imageUrls = [];
 
-            const onAllImagesLoaded = () => {
-                // Filter out locked images before setting them
-                const unlockedImageUrls = imageUrls.filter(image => !lockedImages.includes(image.name));
-                parentDiv.dataset.images = JSON.stringify(unlockedImageUrls);
-                if (unlockedImageUrls.length > 0) {
-                    parentDiv.dataset.currentIndex = 0;
-                    parentDiv.style.backgroundImage = `url(${unlockedImageUrls[0].url})`;
-                } else {
-                    // Handle the case where all new images are locked
-                    console.log('All uploaded images are locked.');
-                    // You might want to keep the current image or set a default background
-                }
-                parentDiv.isLocked = false;
-            };
+                const onAllImagesLoaded = () => {
+                    // Filter out locked images before setting them
+                    const unlockedImageUrls = imageUrls.filter(image => !lockedImages.includes(image.name));
+                    parentDiv.dataset.images = JSON.stringify(unlockedImageUrls);
+                    if (unlockedImageUrls.length > 0) {
+                        parentDiv.dataset.currentIndex = 0;
+                        parentDiv.style.backgroundImage = `url(${unlockedImageUrls[0].url})`;
+                    } else {
+                        // Handle the case where all new images are locked
+                        console.log('All uploaded images are locked.');
+                        // You might want to keep the current image or set a default background
+                    }
+                    parentDiv.isLocked = false;
+                };
 
-            for (let i = 0; i < files.length; i++) {
-                const imageName = files[i].name;
+                for (let i = 0; i < files.length; i++) {
+                    const imageName = files[i].name;
 
-                // Only create blob URLs for unlocked images
-                if (!lockedImages.includes(imageName)) {
-                    const imageUrl = URL.createObjectURL(files[i].url);
-                    const Id = files[i].id;
+                    // Only create blob URLs for unlocked images
+                    if (!lockedImages.includes(imageName)) {
+                        const imageUrl = URL.createObjectURL(files[i].url);
+                        const Id = files[i].id;
 
-                    imageUrls.push({ url: imageUrl, name: imageName, id: Id });
+                        imageUrls.push({ url: imageUrl, name: imageName, id: Id });
 
-                    const img = new Image();
-                    img.src = imageUrl;
-                    img.onload = () => {
+                        const img = new Image();
+                        img.src = imageUrl;
+                        img.onload = () => {
+                            loadedImagesCount++;
+                            if (loadedImagesCount === files.length) {
+                                onAllImagesLoaded();
+                            }
+                        };
+                    } else {
+                        // Skip locked images but increment the loadedImagesCount
                         loadedImagesCount++;
                         if (loadedImagesCount === files.length) {
                             onAllImagesLoaded();
                         }
-                    };
-                } else {
-                    // Skip locked images but increment the loadedImagesCount
-                    loadedImagesCount++;
-                    if (loadedImagesCount === files.length) {
-                        onAllImagesLoaded();
                     }
                 }
             }
-        }
-        else if (files) {
-            const imageName = files[0].name;
+            else if (files) {
+                const imageName = files[0].name;
 
-            // Only proceed if the image is unlocked
-            if (!lockedImages.includes(imageName)) {
-                const imageUrl = URL.createObjectURL(files[0].url);
-                const Id = files[0].id;
+                // Only proceed if the image is unlocked
+                if (!lockedImages.includes(imageName)) {
+                    const imageUrl = URL.createObjectURL(files[0].url);
+                    const Id = files[0].id;
 
-                parentDiv.style.backgroundImage = `url(${imageUrl})`;
-                parentDiv.dataset.currentIndex = 0;
-                parentDiv.dataset.images = JSON.stringify([{ url: imageUrl, name: imageName, id: Id }]);
-                parentDiv.isLocked = false;
-            } else {
-                // Handle the case where the single new image is locked
-                console.log('The uploaded image is locked.');
-                // You might want to keep the current image or set a default background
+                    parentDiv.style.backgroundImage = `url(${imageUrl})`;
+                    parentDiv.dataset.currentIndex = 0;
+                    parentDiv.dataset.images = JSON.stringify([{ url: imageUrl, name: imageName, id: Id }]);
+                    parentDiv.isLocked = false;
+                } else {
+                    // Handle the case where the single new image is locked
+                    console.log('The uploaded image is locked.');
+                    // You might want to keep the current image or set a default background
+                }
             }
         }
-    }
 
         function uploadSavedFiles(files, parentDiv) {
             //new images to upload, replaces all of the current images
@@ -689,66 +625,70 @@
         }
 
         function mouseEnter(parentDiv) {
-            const images = JSON.parse(parentDiv.dataset.images);
-            const currentIndex = parseInt(parentDiv.dataset.currentIndex);
-            const currentImage = images[currentIndex];
+            if (parentDiv.dataset.images) {
+                const images = JSON.parse(parentDiv.dataset.images);
+                const currentIndex = parseInt(parentDiv.dataset.currentIndex);
+                const currentImage = images[currentIndex];
 
-            if (images.length > 0 && !parentDiv.isLocked){
-                parentDiv.querySelector('.delete-button').style.display = 'block';
-                parentDiv.querySelector('.plus-button').style.display = 'block';
-                parentDiv.querySelector('.like-image').style.display = 'block';
+                if (images.length > 0 && !parentDiv.isLocked){
+                    parentDiv.querySelector('.delete-button').style.display = 'block';
+                    parentDiv.querySelector('.plus-button').style.display = 'block';
+                    parentDiv.querySelector('.like-image').style.display = 'block';
 
-            }
-            else if(images.length > 0 && parentDiv.isLocked){
-                parentDiv.querySelector('.delete-button').style.display = 'none';
-                parentDiv.querySelector('.plus-button').style.display = 'none';
-                parentDiv.querySelector('.like-image').style.display = 'none';
-            }
-
-            if (images.length > 0){
-                parentDiv.querySelector('.lock-image').style.display = 'block';
-                if (parentDiv.isLocked){
-                    parentDiv.querySelector('.lock-image').innerText = 'Unlock';
-                }else{
-                    parentDiv.querySelector('.lock-image').innerText = 'Lock';
                 }
-            }
+                else if(images.length > 0 && parentDiv.isLocked){
+                    parentDiv.querySelector('.delete-button').style.display = 'none';
+                    parentDiv.querySelector('.plus-button').style.display = 'none';
+                    parentDiv.querySelector('.like-image').style.display = 'none';
+                }
 
-            if (images.length > 1 && !parentDiv.isLocked) {
-                parentDiv.querySelector('.random-image').style.display = 'block';
+                if (images.length > 0){
+                    parentDiv.querySelector('.lock-image').style.display = 'block';
+                    if (parentDiv.isLocked){
+                        parentDiv.querySelector('.lock-image').innerText = 'Unlock';
+                    }else{
+                        parentDiv.querySelector('.lock-image').innerText = 'Lock';
+                    }
+                }
 
-                parentDiv.querySelector('.next-image').style.display = 'block' ;
-                parentDiv.querySelector('.prev-image').style.display = 'block' ;
-            }
-            else if (images.length > 1 && parentDiv.isLocked) {
-                parentDiv.querySelector('.random-image').style.display = 'none';
+                if (images.length > 1 && !parentDiv.isLocked) {
+                    parentDiv.querySelector('.random-image').style.display = 'block';
 
-                parentDiv.querySelector('.next-image').style.display = 'none' ;
-                parentDiv.querySelector('.prev-image').style.display = 'none' ;
-                parentDiv.querySelector('.like-image').style.display = 'none';
+                    parentDiv.querySelector('.next-image').style.display = 'block' ;
+                    parentDiv.querySelector('.prev-image').style.display = 'block' ;
+                }
+                else if (images.length > 1 && parentDiv.isLocked) {
+                    parentDiv.querySelector('.random-image').style.display = 'none';
 
-            }
+                    parentDiv.querySelector('.next-image').style.display = 'none' ;
+                    parentDiv.querySelector('.prev-image').style.display = 'none' ;
+                    parentDiv.querySelector('.like-image').style.display = 'none';
 
-            likeButton = parentDiv.querySelector('.like-image');
+                }
 
-            if(currentImage.id in likedImages){
-                likeButton.innerText = "Unlike";
-            }else{
-                likeButton.innerText = "Like";
+                likeButton = parentDiv.querySelector('.like-image');
+
+                if(currentImage.id in likedImages){
+                    likeButton.innerText = "Unlike";
+                }else{
+                    likeButton.innerText = "Like";
+                }
             }
             
         }
 
         function mouseLeft(parentDiv) {
-            const images = JSON.parse(parentDiv.dataset.images);
+            if (parentDiv.dataset.images) {
+                const images = JSON.parse(parentDiv.dataset.images);
 
-            parentDiv.querySelector('.lock-image').style.display = 'none';
-            parentDiv.querySelector('.plus-button').style.display = 'none';
-            parentDiv.querySelector('.next-image').style.display = 'none';
-            parentDiv.querySelector('.prev-image').style.display = 'none';
-            parentDiv.querySelector('.random-image').style.display = 'none';
-            parentDiv.querySelector('.delete-button').style.display = 'none';
-            parentDiv.querySelector('.like-image').style.display = 'none';
+                parentDiv.querySelector('.lock-image').style.display = 'none';
+                parentDiv.querySelector('.plus-button').style.display = 'none';
+                parentDiv.querySelector('.next-image').style.display = 'none';
+                parentDiv.querySelector('.prev-image').style.display = 'none';
+                parentDiv.querySelector('.random-image').style.display = 'none';
+                parentDiv.querySelector('.delete-button').style.display = 'none';
+                parentDiv.querySelector('.like-image').style.display = 'none';
+            }   
 
 
 
@@ -762,7 +702,7 @@
 
         function uploadWalls(){
             //loop thru each gallery selection and 
-            for (let i=1; i<8; i++){
+            for (let i=1; i<5; i++){
                 createGallery(i);
             }
         }
@@ -772,16 +712,25 @@
         }
 
         function createGallery(wall) {
-            
+
+        
             const count = getValueOfWall(String(wall));
             const id = 'g' + String(wall);
+            const size = getSizeOfWall(String(wall));
             const container = document.getElementById(id);
-            const currentCount = container.getElementsByClassName('image-container').length;
+            
+            // Remove all squares
+            while (container.getElementsByClassName('image-container').length != 0) {
+                container.removeChild(container.lastChild);
+            }
+
+            const currentCount = 0;
             
             // Add new squares if needed
             for(let i = currentCount; i < count; i++) {
                 const div = document.createElement('div');
                 div.classList.add('image-container');
+                div.classList.add(size);
                 div.id = uuid.v4();
 
                 const input = document.createElement('input');
@@ -903,15 +852,18 @@
 
             }
 
-            // Remove excess squares if needed
-            while (container.getElementsByClassName('image-container').length > count) {
-                container.removeChild(container.lastChild);
-            }
         }
 
         window.onload = function() {
             uploadWalls();
         };
+
+        function getSizeOfWall(wallNumber) {
+            var selectElement = document.getElementById('num-walls-select' + wallNumber);
+            var selectedOption = selectElement.options[selectElement.selectedIndex];
+            var size = selectedOption.getAttribute('size'); 
+            return size;
+        }
 
         function getValueOfWall(wallNumber) {
             var selectElement = document.getElementById('num-walls-select' + wallNumber);

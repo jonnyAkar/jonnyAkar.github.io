@@ -1,121 +1,52 @@
-:root {
-    --image-width: 220px; 
-    --single-image-width: 255px;
-  }
-
 
 .images {
     max-width: 100%;
-    height: auto; /* test */
+    height: auto;
     margin: 5px; /* some spacing between images */
 }
 
-.gallery {
-    display: flex;
-    flex-direction: column;
-}  
 
-.hlinekeep {
-    order: 2;
-    height: 1px; 
-    background-color: black; 
-    border: none;
-    width: 100%; 
-    margin: 0; 
-  }
-
-.room1{
-    order: 3;
+.container {
     position: relative;
-    height: 150vh;
-}
-
-.room2{
-    order: 1;
-    position: relative;
-    height: 150vh;
-}
-
-#g1{
-    display: flex;
+    background-color: white;
+	display: flex;
 	justify-content: center;
 	align-items: center;
-    position: absolute;
-    background-color: white;
-    bottom:0;
-    left: 50%;
-    transform: translateX(-50%);
+}
+
+#g1 {
+    width: 52.63vw; /* Proportional width based on the largest wall */
+    height: 26vw;
+    transform: translateY(80%) translateX(113.5%) rotate(90deg);
+    z-index: 2;
+}
+
+#g2 {
+    width: 99vw; /* The largest wall */
+    height: 26vw;
+    transform: translateY(-100%);
     z-index: 1;
+   
 }
 
-#g1 .image-container {
-    background-color: grey; 
-    width: var(--image-width); 
-    transform: rotate(180deg);
+#g3 {
+    width: 52.63vw;
+    height: 26vw;
+    transform: translateY(-120%) translateX(-25.25%) rotate(-90deg);
+    z-index: 2;
 }
 
-#g2{
-    position: absolute;
-    background-color: white;
-
-    top:50%;
-    transform: translateY(-50%);
-
-    right:0;
-    z-index: 1;
-}
-
-#g2 .image-container {
-    background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
-    width: var(--single-image-width); 
-    transform: rotate(90deg);
-
-}
-
-#g3{
-    display: flex;
-	justify-content: center;
-	align-items: center;
-    position: absolute;
-    background-color: white;
-    top:0;
-    right:50%;
-    transform: translateX(50%);
-
-    z-index: 1;
-}
-
-#g3 .image-container {
-    background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
-    width: var(--image-width); 
-}
-
-#g4{
-    position: absolute;
-    background-color: white;
-    left:0;
-    top:50%;
-    transform: translateY(-50%);
-    z-index: 1;
-}
-
-#g4 .image-container {
-    background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
-    width: var(--single-image-width); 
-    transform: rotate(-90deg);
-
-}
-
-
-#fileInput {
-    display: none;
+#g4 {
+    width: 71.05vw;
+    height: 26vw;
+    border-bottom: 1px solid black;
+    transform: translateY(-130%) translateX(1%);
 }
 
 
 .image-container {
     position: relative;
     width: 100%;
-    max-width: 300px; 
     height: auto;
     aspect-ratio: 1; 
     overflow: hidden;
@@ -128,102 +59,49 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100% 100%;
-    
+}
+
+.image-container.small {
+    max-width: 3.42vw;
+}
+
+.image-container.medium {
+    max-width: 7.4vw;
+}
+
+.image-container.large {
+    max-width: 11vw;
 }
 
 .image-container img {
     width: 100%; 
-    max-width: 300px; 
-    max-height: 300px; 
     height: auto; 
     position: absolute;
 }
 
-#g5{
-    display: flex;
-	justify-content: center;
-	align-items: center;
-    position: absolute;
-    background-color: white;
-    left:50%;
-    top:0;
-    transform: translateX(-50%);
-    z-index: 1;
-}
-
-#g5 .image-container {
-    background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
-    width: var(--image-width);  
-}
-
-#g6{
-    position: absolute;
-    background-color: white;
-
-    top:50%;
-    transform: translateY(-50%);
-
-    right:0;
-    z-index: 1;
-}
-
-#g6 .image-container {
-    background-color: grey; /* This will change the background color to blue for .image-container inside #g1 */
-    width: var(--single-image-width); 
-    transform: rotate(90deg);
-
-}
 
 
-#g7{
-    display: flex;
-	justify-content: center;
-	align-items: center;
-    position: absolute;
-    background-color: white;
-    bottom:0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-}
-
-#g7 .image-container {
-    background-color: grey; 
-    width: var(--image-width); 
-    transform: rotate(180deg);
-
-}
-
-
-#g1 .wall-text-input,
-#g7 .wall-text-input{
+#g1 .wall-text-input{
     position: absolute;
     left: 50%;
-    top: -50px; 
-    z-index: 3;
+    bottom: 0px; 
     transform: translateX(-50%);
     width: 300px;
     height: 50px;
     margin-bottom: 10px;
 }
 
-#g2 .wall-text-input,
-#g6 .wall-text-input{
+#g2 .wall-text-input{
     position: absolute;
-    left: -325px;
-    top: 50%; 
-    z-index: 3;
-    transform: translateY(-50%);
+    top: 80%;
     width: 300px;
     height: 50px;
 }
 
-#g3 .wall-text-input,
-#g5 .wall-text-input{
+#g3 .wall-text-input{
     position: absolute;
-    left: 50%;
-    bottom: -50px; 
-    z-index: 3;
+    left: 40%;
+    bottom: -3px; 
     transform: translateX(-50%);
     width: 325px;
     height: 50px;
@@ -231,33 +109,12 @@
 
 #g4 .wall-text-input{
     position: absolute;
-    right: -325px;
-    top: 50%; 
-    z-index: 3;
+    left: 500px;
+    top: 10%; 
     transform: translateY(-50%);
     width: 300px;
     height: 50px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .upload {
 	display: none;
@@ -306,6 +163,10 @@
 }
 
 .hline{
+    display: none;
+}
+
+.hlinekeep{
     display: none;
 }
 
