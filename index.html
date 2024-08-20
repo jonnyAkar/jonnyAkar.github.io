@@ -317,7 +317,6 @@
             });
         }
 
-
         function uploadImagesToSquare(files, parentDiv) {
             // New images to upload, replaces all of the current images
             if (files && files.length > 1) {
@@ -702,9 +701,6 @@
                 parentDiv.querySelector('.delete-button').style.display = 'none';
                 parentDiv.querySelector('.like-image').style.display = 'none';
             }   
-
-
-
         }
 
         document.querySelectorAll('.image-container').forEach(div => {
@@ -739,8 +735,6 @@
                 div.classList.remove('small');
                 div.classList.add(size);
             });
-            
-
             
             // Add new squares if needed
             for(let i = currentCount; i < count; i++) {
@@ -974,6 +968,7 @@
                 uploadImages(fileObjects, imageContainer);
             });
         }
+
 
     </script>
 </body>

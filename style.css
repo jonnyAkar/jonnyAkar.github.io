@@ -47,7 +47,7 @@
     width: 100%;
     height: auto;
     aspect-ratio: 1; 
-    overflow: hidden;
+    overflow: visible;
     background-color: grey;
     margin: 35px;
     display: flex;
@@ -89,61 +89,127 @@
     position: absolute;
     bottom: 10px;
     right: 10px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    display: none;
-}
-.prev-image {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    display: none;
-}
-.random-image {
-    position: absolute;
-    left: 10px;
-    top: 70px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: lightblue;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
     display: none;
 }
 
-.lock-image {
+.image-container.medium .next-image {
+    bottom: -10px;
+    right: -20px;
+}
+
+.image-container.small .next-image {
+    bottom: -10px;
+    right: -20px;
+    padding: 2.5px 5px;
+    font-size: 8px; 
+}
+
+
+.prev-image {
     position: absolute;
+    bottom: 10px;
     left: 10px;
-    top: 10px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: lightblue;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
     display: none;
+}
+
+.image-container.medium .prev-image {
+    bottom: -10px;
+    left: -20px;
+}
+
+.image-container.small .prev-image {
+    bottom: -10px;
+    left: -20px;
+    padding: 2.5px 5px;
+    font-size: 8px; 
+}
+
+
+.random-image {
+    position: absolute;
+    left: 10px;
+    top: 70px;
+    background-color: lightblue;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: none;
+}
+
+.image-container.medium .random-image {
+    left: -20px;
+    top: 40px;
+}
+
+.image-container.small .random-image {
+    left: -20px;
+    top: 19px;
+    padding: 2.5px 5px;
+    font-size: 8px; 
+}
+
+
+.lock-image {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background-color: lightblue;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    display: none;
+}
+
+.image-container.medium .lock-image {
+    left: -20px;
+    top: -20px;
+}
+
+.image-container.small .lock-image {
+    left: -20px;
+    top: -10px;
+    padding: 2.5px 5px;
+    font-size: 8px; 
 }
 
 .like-image {
     position: absolute;
     left: 10px;
     top: 40px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: lightblue;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
     display: none;
 }
 
+.image-container.medium .like-image {
+    left: -20px;
+    top: 10px;
+}
+
+.image-container.small .like-image {
+    left: -20px;
+    top: 4.5px;
+    padding: 2.5px 5px;
+    font-size: 8px; 
+}
+
+
 .plus-button {
     position: absolute;
     top: 10px;
     right: 10px;
     display: none; 
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: lightblue;
     border-radius: 50%; 
     border: none; 
     font-size: 16px;
@@ -153,6 +219,19 @@
     text-align: center;
     cursor: pointer; 
 }
+
+.image-container.medium .plus-button {
+    top: -20px; 
+    right: -10px;
+}
+
+.image-container.small .plus-button {
+    top: -10px; 
+    right: -10px;
+    width: 15px; 
+    height: 15px;
+}
+
 
 .plus-button::before {
     content: "+";
@@ -177,7 +256,7 @@
     top: 40px;
     right: 10px;
     display: none; 
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: lightblue;
     border-radius: 50%; 
     border: none; 
     font-size: 16px;
@@ -187,6 +266,20 @@
     text-align: center;
     cursor: pointer; 
 }
+
+.image-container.medium .delete-button {
+    right: -10px;
+    top: 10px;
+}
+
+.image-container.small .delete-button {
+    right: -10px;
+    top: 10px;
+    width: 15px; 
+    height: 15px;
+}
+
+
 
 .delete-button::before {
     content: "-";
@@ -207,12 +300,12 @@
 .selection label,
 .selection select,
 .selection .apply {
-    margin-right: 10px; /* Spacing between label, select, and apply button */
+    margin-right: 10px; 
 }
 
 .selection .liked-only {
     margin-right: 10px; 
-    margin-left: auto; /* This pushes the following elements to the far right */
+    margin-left: auto; 
 }
 
 .selection .random,
