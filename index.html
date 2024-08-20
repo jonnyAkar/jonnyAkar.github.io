@@ -294,16 +294,29 @@
         function captureScreenshot() {
             const container = document.querySelector('.gallery');
             
-            html2canvas(container).then(function(canvas) {
-                // You can append the canvas element to the document to see the screenshot
-                // document.body.appendChild(canvas);
+            html2canvas(container).then(function(originalCanvas) {
+                // Define the desired height after cropping (you can adjust this as needed)
+                const desiredHeight = originalCanvas.height - 1000; // For example, crop 100 pixels from the bottom
+
+                // Create a new canvas element
+                const croppedCanvas = document.createElement('canvas');
+                const ctx = croppedCanvas.getContext('2d');
+
+                // Set the new canvas dimensions (same width, reduced height)
+                croppedCanvas.width = originalCanvas.width;
+                croppedCanvas.height = desiredHeight;
+
+                // Draw the original canvas onto the new one, but crop the bottom
+                ctx.drawImage(originalCanvas, 0, 0, originalCanvas.width, desiredHeight, 0, 0, originalCanvas.width, desiredHeight);
+
+                // Convert the cropped canvas to an image and trigger the download
                 const link = document.createElement('a');
-                link.href = canvas.toDataURL();
+                link.href = croppedCanvas.toDataURL();
                 link.download = 'screenshot.png';
                 link.click();
-                textarea.style.height = height;
             });
         }
+
 
         function uploadImagesToSquare(files, parentDiv) {
             // New images to upload, replaces all of the current images
@@ -713,18 +726,21 @@
 
         function createGallery(wall) {
 
-        
             const count = getValueOfWall(String(wall));
             const id = 'g' + String(wall);
             const size = getSizeOfWall(String(wall));
             const container = document.getElementById(id);
-            
-            // Remove all squares
-            while (container.getElementsByClassName('image-container').length != 0) {
-                container.removeChild(container.lastChild);
-            }
+            const currentCount = container.getElementsByClassName('image-container').length;
 
-            const currentCount = 0;
+            // loop through container children and change classlist size
+            container.querySelectorAll('.image-container').forEach((div) => {
+                div.classList.remove('large');
+                div.classList.remove('medium');
+                div.classList.remove('small');
+                div.classList.add(size);
+            });
+            
+
             
             // Add new squares if needed
             for(let i = currentCount; i < count; i++) {
@@ -849,7 +865,11 @@
                         mouseLeft(div);
                     }
                 });
+            }
 
+            // Remove excess
+            while (container.getElementsByClassName('image-container').length > count) {
+                container.removeChild(container.lastChild);
             }
 
         }
