@@ -115,6 +115,12 @@
         //key: imagecontainer.id
         const saved_files = {};
 
+        //key: wall number
+        const wallImages = {};
+
+        //All uploaded images
+        let galleryImages = [];
+
         function triggerFileInput(wall) {
             document.getElementById('wallFileInput' + wall).click();
         }
@@ -468,9 +474,6 @@
 
             images.splice(index, 1);
 
-            console.log(saved_files[div.id]);
-            console.log(image.id);
-
             const files = saved_files[div.id];
 
             saved_files[div.id] = files.filter(function(file) {
@@ -514,15 +517,12 @@
             
             let loadedImagesCount = 0;
             let imageUrls = [];
-            console.log("ADDING IMAGE");
             const onAllImagesLoaded = () => {
                 
                 currentImages = JSON.parse(parentDiv.dataset.images);
                 for (let imageUrl of imageUrls) {
                     if (!lockedImages.includes(imageUrl.name)) {
                         currentImages.push(imageUrl);
-                    }else{
-                        console.log("here");
                     }
                 }
                 parentDiv.dataset.images = JSON.stringify(currentImages);
@@ -709,18 +709,11 @@
             });
         });
 
-        function uploadWalls(){
-            //loop thru each gallery selection and 
-            for (let i=1; i<5; i++){
-                createGallery(i);
-            }
-        }
-
         function updateWall(wall){
-            createGallery(wall);
+            createWall(wall);
         }
 
-        function createGallery(wall) {
+        function createWall(wall) {
 
             const count = getValueOfWall(String(wall));
             const id = 'g' + String(wall);
@@ -750,7 +743,7 @@
                 input.multiple = true;
                 input.addEventListener('change', function() {
                     const id = this.parentElement.id;
-                    console.log(this.parentElement);
+                    
                     let fileObjects = []; // Array to hold new file objects
 
                     Array.from(this.files).forEach(file => {
@@ -859,6 +852,34 @@
                         mouseLeft(div);
                     }
                 });
+
+                
+                
+                // If saved files exist to wall, upload them
+                if (wallImages[wall]){
+                    wallImages[wall].forEach(fileObject => {
+                        const Id = uuid.v4();
+                        fileObject.id = Id; 
+                    });
+
+                    saved_files[div.id] = wallImages[wall];
+
+                    console.log(wallImages[wall]);
+                    uploadImagesToSquare(wallImages[wall], div);
+                    
+                }
+                // If gallery images exist, upload them
+                else if (galleryImages.length > 0){
+                    galleryImages.forEach(fileObject => {
+                        const Id = uuid.v4();
+                        fileObject.id = Id; 
+                    });
+
+                    saved_files[div.id] = galleryImages;
+
+                    uploadImagesToSquare(galleryImages, div);
+                }
+         
             }
 
             // Remove excess
@@ -869,7 +890,10 @@
         }
 
         window.onload = function() {
-            uploadWalls();
+            //loop thru each gallery selection and 
+            for (let i=1; i<5; i++){
+                createWall(i);
+            }
         };
 
         function getSizeOfWall(wallNumber) {
@@ -916,6 +940,24 @@
 
                 uploadImages(fileObjects, div);
             });
+
+            // Add the uploaded files to the gallery images
+            let fileObjects = [];
+
+            // Iterate over each file and create a new object
+            Array.from(e.target.files).forEach(file => {
+
+                const fileObject = {
+                    name: file.name,
+                    url: file,
+                    // Assign a unique ID when adding image to the wall
+                };
+                fileObjects.push(fileObject);
+
+            });
+
+            galleryImages = fileObjects;
+
         });
 
         function removeLockedImage(name) {
@@ -929,7 +971,6 @@
 
             const id = 'g' + String(wall);
             const container = document.getElementById(id);
-            console.log(id);
             const imageContainers = container.querySelectorAll('.image-container');
 
             //remove any liked, locked, or saved images in container
@@ -967,6 +1008,22 @@
                 //upload images to square
                 uploadImages(fileObjects, imageContainer);
             });
+
+            // save the uploaded files to the wall
+            let fileObjects = [];
+
+            Array.from(e.target.files).forEach(file => {
+
+                const fileObject = {
+                    name: file.name,
+                    url: file
+                    // add unique ID when adding image to the wall
+                };
+                fileObjects.push(fileObject);
+
+            });
+
+            wallImages[wall] = fileObjects;
         }
 
 
