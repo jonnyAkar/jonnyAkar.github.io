@@ -17,14 +17,14 @@
 #g1 {
     width: 52.63vw; /* Proportional width based on the largest wall */
     height: 26vw;
-    transform: translateY(80%) translateX(120.5%) rotate(90deg);
+    transform: translateY(80%) translateX(125.5%) rotate(90deg);
     z-index: 2;
 }
 
 #g2 {
     width: 99vw; /* The largest wall */
     height: 26vw;
-    transform: translateY(-120%);
+    transform: translateY(-127%);
     z-index: 2;
    
 }
@@ -32,15 +32,16 @@
 #g3 {
     width: 52.63vw;
     height: 26vw;
-    transform: translateY(-120%) translateX(-35.25%) rotate(-90deg);
+    transform: translateY(-120%) translateX(-38%) rotate(-90deg);
 }
 
 #g4 {
     width: 71.05vw;
     height: 26vw;
-    transform: translateY(-120%) translateX(1%) rotate(180deg);
+    transform: translateY(-100%) translateX(1%) rotate(180deg);
     z-index: 3;
 }
+
 
 
 .image-container {
