@@ -22,87 +22,87 @@
         <button class="toggle-background" onclick="toggleBackground()">Toggle Background</button>
     </div>
     <div class="gallery">
-            <hr class="hline">
-            <div class="wall-selection">
-                <h3 class="wall-labels">Wall 1</h3>
-                <button class="random" onclick="randomizeAll()">Randomize</button>
-                <button class="random-wall" onclick="randomizeWall(1)">Randomize Wall</button>
-                <input type="file" id="wallFileInput1" style="display: none;" onchange="handleFileUpload(event, 1)" multiple>
-                <button class="upload-wall" onclick="triggerFileInput(1)">Upload Wall</button>
-                <button class="screenshot-wall" onclick="captureScreenshotWall(1)">Screenshot Wall</button>
-                <label class="wall-labels" for="num-walls">Number of images:</label>
-                <select name="num-walls" id="num-walls-select1" class="num-walls-select">
-                    <option value="1" size="large">1 L</option>
-                    <option value="1" size="medium">1 M</option>
-                    <option value="1" size="small">1 S</option>
-                    <option value="2" size="small">2 S</option>
-                </select>
-                <button class = "apply" onclick="updateWall(1)">Apply</button>
-            </div>
-            
-            <div class="container" id="g1"> 
-                <div contenteditable="true" class="wall-text-input"></div>
-            </div>
+        <hr class="hline">
+        <div class="wall-selection">
+            <h3 class="wall-labels">Wall 1</h3>
+            <button class="random" onclick="randomizeAll()">Randomize</button>
+            <button class="random-wall" onclick="randomizeWall(1)">Randomize Wall</button>
+            <input type="file" id="wallFileInput1" style="display: none;" onchange="handleFileUpload(event, 1)" multiple>
+            <button class="upload-wall" onclick="triggerFileInput(1)">Upload Wall</button>
+            <button class="screenshot-wall" onclick="captureScreenshotWall(1)">Screenshot Wall</button>
+            <label class="wall-labels" for="num-walls">Number of images:</label>
+            <select name="num-walls" id="num-walls-select1" class="num-walls-select">
+                <option value="1" size="large">1 L</option>
+                <option value="1" size="medium">1 M</option>
+                <option value="1" size="small">1 S</option>
+                <option value="2" size="small">2 S</option>
+            </select>
+            <button class = "apply" onclick="updateWall(1)">Apply</button>
+        </div>
+        
+        <div class="container" id="g1"> 
+            <div contenteditable="true" class="wall-text-input"></div>
+        </div>
 
-            <div class="wall-selection">
-                <h3>Wall 2</h3>
-                <button class="random" onclick="randomizeAll()">Randomize</button>
-                <button class="random-wall" onclick="randomizeWall(2)">Randomize Wall</button>
-                <input type="file" id="wallFileInput2" style="display: none;" onchange="handleFileUpload(event, 2)" multiple>
-                <button class="upload-wall" onclick="triggerFileInput(2)">Upload Wall</button>
-                <button class="screenshot-wall" onclick="captureScreenshotWall(2)">Screenshot Wall</button>
-                <label for="num-walls">Number of images:</label>
-                <select name="num-walls" id="num-walls-select2" class="num-walls-select">
-                    <option value="2" size="large">2 L</option>
-                    <option value="2" size="medium">2 M</option>
-                    <option value="3" size="medium">3 M</option>
-                    <option value="4" size="small">4 S</option>
-                    <option value="5" size="small">5 S</option>
-                </select>
-                <button class = "apply" onclick="updateWall(2)">Apply</button>
-            </div>
-            <div class="container" id="g2">  
-                <div contenteditable="true" class="wall-text-input"></div>
-            </div>
-            <div class="wall-selection">
-                <h3>Wall 3</h3>
-                <button class="random" onclick="randomizeAll()">Randomize</button>
-                <button class="random-wall" onclick="randomizeWall(3)">Randomize Wall</button>
-                <input type="file" id="wallFileInput3" style="display: none;" onchange="handleFileUpload(event, 3)" multiple>
-                <button class="upload-wall" onclick="triggerFileInput(3)">Upload Wall</button>
-                <button class="screenshot-wall" onclick="captureScreenshotWall(3)">Screenshot Wall</button>
-                <label for="num-walls">Number of images:</label>
-                <select name="num-walls" id="num-walls-select3" class="num-walls-select">
-                    <option value="1" size="large">1 L</option>
-                    <option value="1" size="medium">1 M</option>
-                    <option value="1" size="small">1 S</option>
-                    <option value="2" size="small">2 S</option>
-                </select>
-                <button class = "apply" onclick="updateWall(3)">Apply</button>
-            </div>
-            <div class="container" id="g3">   
-                <div contenteditable="true" class="wall-text-input"></div>
-            </div>
-            <div class="wall-selection">
-                <h3>Wall 4</h3>
-                <button class="random" onclick="randomizeAll()">Randomize</button>
-                <button class="random-wall" onclick="randomizeWall(4)">Randomize Wall</button>
-                <input type="file" id="wallFileInput4" style="display: none;" onchange="handleFileUpload(event, 4)" multiple>
-                <button class="upload-wall" onclick="triggerFileInput(4)">Upload Wall</button>
+        <div class="wall-selection">
+            <h3>Wall 2</h3>
+            <button class="random" onclick="randomizeAll()">Randomize</button>
+            <button class="random-wall" onclick="randomizeWall(2)">Randomize Wall</button>
+            <input type="file" id="wallFileInput2" style="display: none;" onchange="handleFileUpload(event, 2)" multiple>
+            <button class="upload-wall" onclick="triggerFileInput(2)">Upload Wall</button>
+            <button class="screenshot-wall" onclick="captureScreenshotWall(2)">Screenshot Wall</button>
+            <label for="num-walls">Number of images:</label>
+            <select name="num-walls" id="num-walls-select2" class="num-walls-select">
+                <option value="2" size="large">2 L</option>
+                <option value="2" size="medium">2 M</option>
+                <option value="3" size="medium">3 M</option>
+                <option value="4" size="small">4 S</option>
+                <option value="5" size="small">5 S</option>
+            </select>
+            <button class = "apply" onclick="updateWall(2)">Apply</button>
+        </div>
+        <div class="container" id="g2">  
+            <div contenteditable="true" class="wall-text-input"></div>
+        </div>
+        <div class="wall-selection">
+            <h3>Wall 3</h3>
+            <button class="random" onclick="randomizeAll()">Randomize</button>
+            <button class="random-wall" onclick="randomizeWall(3)">Randomize Wall</button>
+            <input type="file" id="wallFileInput3" style="display: none;" onchange="handleFileUpload(event, 3)" multiple>
+            <button class="upload-wall" onclick="triggerFileInput(3)">Upload Wall</button>
+            <button class="screenshot-wall" onclick="captureScreenshotWall(3)">Screenshot Wall</button>
+            <label for="num-walls">Number of images:</label>
+            <select name="num-walls" id="num-walls-select3" class="num-walls-select">
+                <option value="1" size="large">1 L</option>
+                <option value="1" size="medium">1 M</option>
+                <option value="1" size="small">1 S</option>
+                <option value="2" size="small">2 S</option>
+            </select>
+            <button class = "apply" onclick="updateWall(3)">Apply</button>
+        </div>
+        <div class="container" id="g3">   
+            <div contenteditable="true" class="wall-text-input"></div>
+        </div>
+        <div class="wall-selection">
+            <h3>Wall 4</h3>
+            <button class="random" onclick="randomizeAll()">Randomize</button>
+            <button class="random-wall" onclick="randomizeWall(4)">Randomize Wall</button>
+            <input type="file" id="wallFileInput4" style="display: none;" onchange="handleFileUpload(event, 4)" multiple>
+            <button class="upload-wall" onclick="triggerFileInput(4)">Upload Wall</button>
 
-                <button class="screenshot-wall" onclick="captureScreenshotWall(4)">Screenshot Wall</button>
-                <label for="num-walls">Number of images:</label>
-                <select name="num-walls" id="num-walls-select4" class="num-walls-select">
-                    <option value="1" size="large">1 L</option>
-                    <option value="1" size="medium">1 M</option>
-                    <option value="2" size="medium">2 M</option>
-                    <option value="3" size="small">3 S</option>
-                </select>
-                <button class = "apply" onclick="updateWall(4)">Apply</button>
-            </div>
-            <div class="container" id="g4">
-                <div contenteditable="true" class="wall-text-input"></div>
-            </div>
+            <button class="screenshot-wall" onclick="captureScreenshotWall(4)">Screenshot Wall</button>
+            <label for="num-walls">Number of images:</label>
+            <select name="num-walls" id="num-walls-select4" class="num-walls-select">
+                <option value="1" size="large">1 L</option>
+                <option value="1" size="medium">1 M</option>
+                <option value="2" size="medium">2 M</option>
+                <option value="3" size="small">3 S</option>
+            </select>
+            <button class = "apply" onclick="updateWall(4)">Apply</button>
+        </div>
+        <div class="container" id="g4">
+            <div contenteditable="true" class="wall-text-input"></div>
+        </div>
     </div>
 
     <script>

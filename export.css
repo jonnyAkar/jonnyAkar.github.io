@@ -17,30 +17,29 @@
 #g1 {
     width: 52.63vw; /* Proportional width based on the largest wall */
     height: 26vw;
-    transform: translateY(80%) translateX(113.5%) rotate(90deg);
+    transform: translateY(80%) translateX(120.5%) rotate(90deg);
     z-index: 2;
 }
 
 #g2 {
     width: 99vw; /* The largest wall */
     height: 26vw;
-    transform: translateY(-100%);
-    z-index: 1;
+    transform: translateY(-120%);
+    z-index: 2;
    
 }
 
 #g3 {
     width: 52.63vw;
     height: 26vw;
-    transform: translateY(-120%) translateX(-25.25%) rotate(-90deg);
-    z-index: 2;
+    transform: translateY(-120%) translateX(-35.25%) rotate(-90deg);
 }
 
 #g4 {
     width: 71.05vw;
     height: 26vw;
-    border-bottom: 1px solid black;
-    transform: translateY(-130%) translateX(1%);
+    transform: translateY(-120%) translateX(1%) rotate(180deg);
+    z-index: 3;
 }
 
 
@@ -51,7 +50,7 @@
     aspect-ratio: 1; 
     overflow: hidden;
     background-color: grey;
-    margin: 35px;
+    margin: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -84,8 +83,8 @@
 #g1 .wall-text-input{
     position: absolute;
     left: 50%;
-    bottom: 0px; 
-    transform: translateX(-50%);
+    top: 120%; 
+    transform: translateX(-50%) rotate(-90deg);
     width: 300px;
     height: 50px;
     margin-bottom: 10px;
@@ -96,22 +95,22 @@
     top: 80%;
     width: 300px;
     height: 50px;
+
 }
 
 #g3 .wall-text-input{
     position: absolute;
-    left: 40%;
-    bottom: -3px; 
-    transform: translateX(-50%);
+    left: 50%;
+    top: 120%;
+    transform: translateX(-50%) rotate(90deg);
     width: 325px;
     height: 50px;
 }
 
 #g4 .wall-text-input{
     position: absolute;
-    left: 500px;
     top: 10%; 
-    transform: translateY(-50%);
+    transform: translateY(500%) rotate(180deg);
     width: 300px;
     height: 50px;
 }
