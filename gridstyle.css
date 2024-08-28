@@ -12,9 +12,8 @@
 .gallery{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
     gap: 10px;
-    background-color: black;
 }
 
 .hline {
@@ -27,32 +26,29 @@
     position: relative;
     background-color: white;
 	display: flex;
-	justify-content: center;
+	justify-content: left;
 	align-items: center;
+    
 }
 
 #g1 {
-    width: 52.63vw; /* Proportional width based on the largest wall */
-    height: 26vw;
-    border: 1px solid black;
+    width: 52.63vw; 
+    height: 9.5vw;
 }
 
 #g2 {
-    width: 99vw; /* The largest wall */
-    height: 26vw;
-    border: 1px solid black;
+    width: 99vw; 
+    height: 9.5vw;
 }
 
 #g3 {
     width: 52.63vw;
-    height: 26vw;
-    border: 1px solid black;
+    height: 9.5vw;
 }
 
 #g4 {
     width: 71.05vw;
-    height: 26vw;
-    border: 1px solid black;
+    height: 9.5vw;
 }
 
 .image-container {
@@ -62,7 +58,7 @@
     aspect-ratio: 1; 
     overflow: visible;
     background-color: grey;
-    margin: 100px;
+    margin: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -328,7 +324,7 @@
     display: flex;
     align-items: flex-start; 
     gap: 10px;
-    margin-bottom: 2px;
+    margin-bottom: 0px;
   }
   
 .wall-selection h3 {
@@ -341,18 +337,10 @@
 }
  
 .wall-labels{
-    color: white;
+    color: black;
 }
 
 .wall-text-input{
-    position: absolute;
-    left: 50%;
-    width: 300px;
-    bottom: 10%;
-    border: 1px solid #ccc;
-    padding: 10px;
-    height: 35px;
-    transform: translateX(-50%);
-    overflow: scroll;
+    display: none;
 }
 
