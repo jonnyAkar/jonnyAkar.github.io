@@ -144,9 +144,8 @@
             // WALL 1
             const selectElement = document.getElementById('num-walls-select1');
             // Save the current options HTML if not saved yet
-            if (!originalOptionsHTML) {
-                originalOptionsHTML[0] = selectElement.innerHTML;
-            }
+            originalOptionsHTML[0] = selectElement.innerHTML;
+         
             selectElement.innerHTML = '';
             const newWall1 = [
                 { value: "1", text: "1" },
@@ -163,9 +162,8 @@
 
             // WALL 2
             const selectElement2 = document.getElementById('num-walls-select2');
-            if (!originalOptionsHTML) {
-                originalOptionsHTML[1] = selectElement2.innerHTML;
-            }
+            originalOptionsHTML[1] = selectElement2.innerHTML;
+            
             selectElement2.innerHTML = '';
             const newWall2 = [
                 { value: "2", text: "2" },
@@ -182,9 +180,8 @@
 
             // WALL 3
             const selectElement3 = document.getElementById('num-walls-select3');
-            if (!originalOptionsHTML) {
-                originalOptionsHTML[2] = selectElement3.innerHTML;
-            }
+            originalOptionsHTML[2] = selectElement3.innerHTML;
+            
             selectElement3.innerHTML = '';
             const newWall3 = [
                 { value: "1", text: "1" },
@@ -201,9 +198,8 @@
             // WALL 4
 
             const selectElement4 = document.getElementById('num-walls-select4');
-            if (!originalOptionsHTML) {
-                originalOptionsHTML[3] = selectElement4.innerHTML;
-            }
+            originalOptionsHTML[3] = selectElement4.innerHTML;
+            
             selectElement4.innerHTML = '';
             const newWall4 = [
                 { value: "1", text: "1" },
@@ -223,15 +219,18 @@
         }
 
         function restoreOptions() {
-
+           
+            console.log(originalOptionsHTML);
             // For loop from 0-3
             for (let i = 1; i < 5; i++) {
                 const selectElement = document.getElementById('num-walls-select' + i);
                 if (originalOptionsHTML[i - 1]) {
                     selectElement.innerHTML = originalOptionsHTML[i - 1];
-                    originalOptionsHTML = '';
+                    console.log(originalOptionsHTML[i - 1]);
                 }
             }
+
+            originalOptionsHTML = {};
 
 
         }
@@ -388,16 +387,16 @@
 
         function displayGridStyle(){
             if (document.getElementById('gridStyle').disabled == true){
+                replaceOptions();
                 document.getElementById('gridStyle').disabled = false;
                 document.getElementById('defaultStyle').disabled = true;
                 document.getElementById('alternateStyle').disabled = true;
-                replaceOptions();
             }
             else{
+                restoreOptions();
                 document.getElementById('gridStyle').disabled = true;
                 document.getElementById('defaultStyle').disabled = false;
                 document.getElementById('alternateStyle').disabled = true;
-                restoreOptions();
             }
         }
         
