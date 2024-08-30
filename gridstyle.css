@@ -77,7 +77,8 @@
 }
 
 .image-container.large {
-    max-width: 11vw;
+    width: 11vw;
+    max-width: 166.32px;
 }
 
 .image-container img {
