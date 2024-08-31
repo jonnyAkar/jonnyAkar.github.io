@@ -36,6 +36,7 @@
             <select name="num-walls" id="num-walls-select1" class="num-walls-select">
                 <option value="1" size="large">1 L</option>
                 <option value="1" size="medium">1 M</option>
+                <option value="2" size="medium">2 M</option>
                 <option value="1" size="small">1 S</option>
                 <option value="2" size="small">2 S</option>
             </select>
@@ -406,8 +407,9 @@
             
             html2canvas(container).then(function(originalCanvas) {
                 // Define the desired height after cropping (you can adjust this as needed)
-                const desiredHeight = originalCanvas.height - ((window.innerWidth * 1000)/1512); ; // For example, crop 100 pixels from the bottom
-
+                
+                const desiredHeight = originalCanvas.height - (originalCanvas.height * .3); 
+                //((container.clientWidth * 1000)/1512)
                 // Create a new canvas element
                 const croppedCanvas = document.createElement('canvas');
                 const ctx = croppedCanvas.getContext('2d');
@@ -1012,7 +1014,8 @@
         }
 
         window.onload = function() {
-            console.log(window.innerWidth);
+            gallery = document.querySelector('.gallery');
+            console.log(gallery.offsetWidth);
             //loop thru each gallery selection and 
             for (let i=1; i<5; i++){
                 createWall(i);
