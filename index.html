@@ -19,7 +19,7 @@
         <button class="view-all" onclick="viewAll()">View All</button>
         <button class="unlock-all" onclick="unlockAll();">Unlock All</button>
         <button class="random" onclick="randomizeAll()">Randomize</button>
-        <button class="screenshot" onclick="captureScreenshot()">Screenshot</button>
+        <button class="screenshot" onclick="captureScreenshot(false)">Screenshot</button>
         <button class="toggle-background" onclick="applyGridStyle()">Toggle Background</button>
     </div>
     <hr class="hline">
@@ -34,11 +34,8 @@
             <button class="screenshot-wall" onclick="captureScreenshotWall(1)">Screenshot Wall</button>
             <label class="wall-labels" for="num-walls">Number of images:</label>
             <select name="num-walls" id="num-walls-select1" class="num-walls-select">
-                <option value="1" size="large">1 L</option>
-                <option value="1" size="medium">1 M</option>
-                <option value="2" size="medium">2 M</option>
-                <option value="1" size="small">1 S</option>
-                <option value="2" size="small">2 S</option>
+                <option value="1" size="medium">1</option>
+                <option value="2" size="medium">2</option>
             </select>
             <button class = "apply" onclick="updateWall(1)">Apply</button>
         </div>
@@ -56,11 +53,10 @@
             <button class="screenshot-wall" onclick="captureScreenshotWall(2)">Screenshot Wall</button>
             <label class="wall-labels" for="num-walls">Number of images:</label>
             <select name="num-walls" id="num-walls-select2" class="num-walls-select">
-                <option value="2" size="large">2 L</option>
-                <option value="2" size="medium">2 M</option>
-                <option value="3" size="medium">3 M</option>
-                <option value="4" size="small">4 S</option>
-                <option value="5" size="small">5 S</option>
+                <option value="2" size="medium">2</option>
+                <option value="3" size="medium">3</option>
+                <option value="4" size="medium">4</option>
+                <option value="5" size="medium">5</option>
             </select>
             <button class = "apply" onclick="updateWall(2)">Apply</button>
         </div>
@@ -76,10 +72,8 @@
             <button class="screenshot-wall" onclick="captureScreenshotWall(3)">Screenshot Wall</button>
             <label class="wall-labels" for="num-walls">Number of images:</label>
             <select name="num-walls" id="num-walls-select3" class="num-walls-select">
-                <option value="1" size="large">1 L</option>
-                <option value="1" size="medium">1 M</option>
-                <option value="1" size="small">1 S</option>
-                <option value="2" size="small">2 S</option>
+                <option value="1" size="medium">1</option>
+                <option value="2" size="medium">2</option>
             </select>
             <button class = "apply" onclick="updateWall(3)">Apply</button>
         </div>
@@ -96,10 +90,9 @@
             <button class="screenshot-wall" onclick="captureScreenshotWall(4)">Screenshot Wall</button>
             <label class="wall-labels" for="num-walls">Number of images:</label>
             <select name="num-walls" id="num-walls-select4" class="num-walls-select">
-                <option value="1" size="large">1 L</option>
-                <option value="1" size="medium">1 M</option>
-                <option value="2" size="medium">2 M</option>
-                <option value="3" size="small">3 S</option>
+                <option value="1" size="medium">1</option>
+                <option value="2" size="medium">2</option>
+                <option value="3" size="medium">3 S</option>
             </select>
             <button class = "apply" onclick="updateWall(4)">Apply</button>
         </div>
@@ -240,7 +233,7 @@
             applyAlternateStyle();
 
             // Take the screenshot with html2canvas
-            captureScreenshot();
+            captureScreenshot(true);
 
             setTimeout(() => {
                 applyDefaultStyle();
@@ -402,13 +395,18 @@
             }
         }
         
-        function captureScreenshot() {
+        function captureScreenshot(isExport) {
             const container = document.querySelector('.gallery');
             
             html2canvas(container).then(function(originalCanvas) {
                 // Define the desired height after cropping (you can adjust this as needed)
-                
-                const desiredHeight = originalCanvas.height - (originalCanvas.height * .3); 
+                let desiredHeight;
+                if (isExport){
+                    desiredHeight = originalCanvas.height - (originalCanvas.height * .3); 
+                }
+                else{
+                    desiredHeight = originalCanvas.height;
+                }
                 //((container.clientWidth * 1000)/1512)
                 // Create a new canvas element
                 const croppedCanvas = document.createElement('canvas');
