@@ -332,16 +332,21 @@
     margin: 0; 
 }
   
-.wall-selection .random{
-    
+
+.random,
+.random-wall,
+.upload-wall,
+.screenshot-wall,
+.num-walls,
+.num-walls-select,
+.apply,
+label.wall-labels {
+    display: none;
     margin-left: auto;
 }
- 
-.wall-labels{
-    color: black;
-}
 
-.wall-text-input{
-    display: none;
-}
+
+
+
+ 
 
