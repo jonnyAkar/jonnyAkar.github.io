@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./style.css" id="defaultStyle" >
     <link rel="stylesheet" href="./export.css" id="alternateStyle" disabled>
     <link rel="stylesheet" href="./gridstyle.css" id="gridStyle" disabled>
+    <link rel="stylesheet" href="./screenshotGridstyle.css" id="gridStyleExport" disabled>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
@@ -36,6 +37,8 @@
             <select name="num-walls" id="num-walls-select1" class="num-walls-select">
                 <option value="1" size="medium">1</option>
                 <option value="2" size="medium">2</option>
+                <option value="3" size="medium">3</option>
+
             </select>
             <button class = "apply" onclick="updateWall(1)">Apply</button>
         </div>
@@ -74,6 +77,7 @@
             <select name="num-walls" id="num-walls-select3" class="num-walls-select">
                 <option value="1" size="medium">1</option>
                 <option value="2" size="medium">2</option>
+                <option value="3" size="medium">3</option>
             </select>
             <button class = "apply" onclick="updateWall(3)">Apply</button>
         </div>
@@ -92,7 +96,7 @@
             <select name="num-walls" id="num-walls-select4" class="num-walls-select">
                 <option value="1" size="medium">1</option>
                 <option value="2" size="medium">2</option>
-                <option value="3" size="medium">3 S</option>
+                <option value="3" size="medium">3</option>
             </select>
             <button class = "apply" onclick="updateWall(4)">Apply</button>
         </div>
@@ -133,101 +137,6 @@
             })
         }
 
-
-        function replaceOptions() {
-            // WALL 1
-            const selectElement = document.getElementById('num-walls-select1');
-            // Save the current options HTML if not saved yet
-            originalOptionsHTML[0] = selectElement.innerHTML;
-         
-            selectElement.innerHTML = '';
-            const newWall1 = [
-                { value: "1", text: "1" },
-                { value: "2", text: "2" },
-            ];
-
-            // Create and append new option elements
-            newWall1.forEach(optionData => {
-                const option = document.createElement('option');
-                option.value = optionData.value;
-                option.textContent = optionData.text;
-                selectElement.appendChild(option);
-            });
-
-            // WALL 2
-            const selectElement2 = document.getElementById('num-walls-select2');
-            originalOptionsHTML[1] = selectElement2.innerHTML;
-            
-            selectElement2.innerHTML = '';
-            const newWall2 = [
-                { value: "2", text: "2" },
-                { value: "3", text: "3" },
-                { value: "4", text: "4" },
-                { value: "5", text: "5" },
-            ];
-            newWall2.forEach(optionData => {
-                const option = document.createElement('option');
-                option.value = optionData.value;
-                option.textContent = optionData.text;
-                selectElement2.appendChild(option);
-            });
-
-            // WALL 3
-            const selectElement3 = document.getElementById('num-walls-select3');
-            originalOptionsHTML[2] = selectElement3.innerHTML;
-            
-            selectElement3.innerHTML = '';
-            const newWall3 = [
-                { value: "1", text: "1" },
-                { value: "2", text: "2" },
-                
-            ];
-            newWall3.forEach(optionData => {
-                const option = document.createElement('option');
-                option.value = optionData.value;
-                option.textContent = optionData.text;
-                selectElement3.appendChild(option);
-            });
-
-            // WALL 4
-
-            const selectElement4 = document.getElementById('num-walls-select4');
-            originalOptionsHTML[3] = selectElement4.innerHTML;
-            
-            selectElement4.innerHTML = '';
-            const newWall4 = [
-                { value: "1", text: "1" },
-                { value: "2", text: "2" },
-                { value: "3", text: "3" },
-                { value: "4", text: "4" },
-         
-            ];
-            newWall4.forEach(optionData => {
-                const option = document.createElement('option');
-                option.value = optionData.value;
-                option.textContent = optionData.text;
-                selectElement4.appendChild(option);
-            });
-
-            setSizes();
-        }
-
-        function restoreOptions() {
-           
-            // For loop from 0-3
-            for (let i = 1; i < 5; i++) {
-                const selectElement = document.getElementById('num-walls-select' + i);
-                if (originalOptionsHTML[i - 1]) {
-                    selectElement.innerHTML = originalOptionsHTML[i - 1];
-                    console.log(originalOptionsHTML[i - 1]);
-                }
-            }
-
-            originalOptionsHTML = {};
-
-
-        }
-
         function export_gallery(){
             // Apply the alternate style before taking the screenshot
             applyAlternateStyle();
@@ -241,6 +150,26 @@
 
         }
 
+        function export_gridStyle(){
+            // Apply the alternate style before taking the screenshot
+            applyGridStyleExport();
+
+            // Take the screenshot with html2canvas
+            captureScreenshot(false);
+
+            setTimeout(() => {
+                applyGridStyle();
+            }, 3000); 
+
+        }
+
+        function applyGridStyleExport(){
+            document.getElementById('gridStyleExport').disabled = false;
+            document.getElementById('defaultStyle').disabled = true;
+            document.getElementById('alternateStyle').disabled = true;
+            document.getElementById('gridStyle').disabled = true;
+        }
+
         function applyAlternateStyle() {
             document.getElementById('alternateStyle').disabled = false;
             document.getElementById('defaultStyle').disabled = true;
@@ -248,6 +177,7 @@
         }
 
         function applyDefaultStyle() {
+            setSizesMedium();
             document.getElementById('defaultStyle').disabled = false;
             document.getElementById('alternateStyle').disabled = true;
             document.getElementById('gridStyle').disabled = true;
@@ -255,16 +185,20 @@
 
         function applyGridStyle(){
             if (document.getElementById('gridStyle').disabled == true){
-                replaceOptions();
+                setSizesLarge();
                 document.getElementById('gridStyle').disabled = false;
                 document.getElementById('defaultStyle').disabled = true;
                 document.getElementById('alternateStyle').disabled = true;
+                document.getElementById('gridStyleExport').disabled = true;
+
             }
             else{
-                restoreOptions();
+                setSizesMedium();
                 document.getElementById('gridStyle').disabled = true;
                 document.getElementById('defaultStyle').disabled = false;
                 document.getElementById('alternateStyle').disabled = true;
+                document.getElementById('gridStyleExport').disabled = true;
+
             }
         }
 
@@ -404,10 +338,13 @@
                 if (isExport){
                     desiredHeight = originalCanvas.height - (originalCanvas.height * .3); 
                 }
+                else if(document.getElementById('gridStyle').disabled == false){
+                    export_gridStyle();
+                    return;
+                }
                 else{
                     desiredHeight = originalCanvas.height;
                 }
-                //((container.clientWidth * 1000)/1512)
                 // Create a new canvas element
                 const croppedCanvas = document.createElement('canvas');
                 const ctx = croppedCanvas.getContext('2d');
@@ -817,15 +754,23 @@
             createWall(wall);
         }
 
-        function setSizes(){
+        function setSizesLarge(size){
+            //get every container and loop through them to set the size
+            const containers = document.querySelectorAll('.image-container');
+
+            containers.forEach(function(container){
+                container.classList.remove('medium');
+                container.classList.add('large');
+            });
+        }
+
+        function setSizesMedium(size){
             //get every container and loop through them to set the size
             const containers = document.querySelectorAll('.image-container');
 
             containers.forEach(function(container){
                 container.classList.remove('large');
-                container.classList.remove('medium');
-                container.classList.remove('small');
-                container.classList.add('large');
+                container.classList.add('medium');
             });
         }
 
