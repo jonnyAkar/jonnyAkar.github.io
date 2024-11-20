@@ -32,25 +32,49 @@
 }
 
 #g1 {
-    width: 52.63vw; /* Proportional width based on the largest wall */
+    width: 99vw; /* Proportional width based on the largest wall */
     height: 26vw;
     border: 1px solid black;
 }
 
 #g2 {
-    width: 99vw; /* The largest wall */
+    width: 36vw; /* The largest wall */
     height: 26vw;
     border: 1px solid black;
 }
 
 #g3 {
-    width: 52.63vw;
+    width: 68vw;
     height: 26vw;
     border: 1px solid black;
 }
 
 #g4 {
-    width: 71.05vw;
+    width: 49vw;
+    height: 26vw;
+    border: 1px solid black;
+}
+
+#g5 {
+    width: 99vw;
+    height: 26vw;
+    border: 1px solid black;
+}
+
+#g6 {
+    width: 74vw;
+    height: 26vw;
+    border: 1px solid black;
+}
+
+#g7 {
+    width: 38vw;
+    height: 26vw;
+    border: 1px solid black;
+}
+
+#g8 {
+    width: 42vw;
     height: 26vw;
     border: 1px solid black;
 }

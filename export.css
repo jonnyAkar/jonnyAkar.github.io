@@ -5,43 +5,88 @@
     margin: 5px; /* some spacing between images */
 }
 
-
 .container {
     position: relative;
-    background-color: white;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 500px; /* Adjust this to accommodate the overflow */
+
 }
 
 #g1 {
-    width: 52.63vw; /* Proportional width based on the largest wall */
-    height: 26vw;
-    transform: translateY(80%) translateX(125.5%) rotate(90deg);
-    z-index: 2;
+    width: 92vw;
+    height: 22vw;
+    transform: translateX(-42%) translateY(110%) rotate(-90deg);
+    background-color: transparent;
 }
 
 #g2 {
-    width: 99vw; /* The largest wall */
-    height: 26vw;
-    transform: translateY(-127%);
-    z-index: 2;
-   
+    width: 34vw;
+    height: 22vw;
+    transform: translateX(100%) translateY(160%) ;
+    background-color: transparent;
+
 }
 
 #g3 {
-    width: 52.63vw;
-    height: 26vw;
-    transform: translateY(-120%) translateX(-38%) rotate(-90deg);
+    width: 63vw;
+    height: 22vw;
+    transform: translateX(30%) translateY(70%) rotate(90deg);
+    background-color: transparent;
+
 }
 
 #g4 {
-    width: 71.05vw;
-    height: 26vw;
-    transform: translateY(-100%) translateX(1%) rotate(180deg);
-    z-index: 3;
+    width: 46vw;
+    height: 22vw;
+    order: -5;
+    transform: translateX(83%) translateY(-33%) rotate(90deg);
+    background-color: transparent;
+
 }
 
+#g5 {
+    width: 100vw;
+    height: 22vw;
+    order: -6;
+    background-color: transparent;
+
+}
+
+#g6 {
+    width: 69vw;
+    height: 22vw;
+    order: -3;
+    transform: translateY(-97%) translateX(-55%) rotate(-90deg) ;
+    background-color: transparent;
+
+}
+
+#g7 {
+    width: 36vw;
+    height: 22vw;
+    order: -2;
+    transform: translateY(-50%) translateX(-20%);
+    background-color: transparent;
+
+}
+
+#g8 {
+    width: 44vw;
+    height: 22vw;
+    order: -1;
+    transform: translateY(-50%) translateX(20%);
+}
 
 
 .image-container {
@@ -49,9 +94,8 @@
     width: 100%;
     height: auto;
     aspect-ratio: 1; 
-    overflow: hidden;
     background-color: grey;
-    margin: 100px;
+    margin: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,15 +106,18 @@
 }
 
 .image-container.small {
-    max-width: 3.42vw;
+    width: 3.42vw;
+    height: 3.42vw;
 }
 
 .image-container.medium {
-    max-width: 7.4vw;
+    width: 7.4vw;
+    height: 7.4vw;
 }
 
 .image-container.large {
-    max-width: 11vw;
+    width: 9vw;
+    height: 9vw;
 }
 
 .image-container img {
